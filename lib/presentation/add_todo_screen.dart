@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
 
+import '../components/custom_button.dart';
+import '../style/app_colors.dart';
+
 class AddTodoScreen extends StatelessWidget {
   const AddTodoScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Add Todo"),
-        actions: [
-          InkWell(
-            onTap: () {},
-            child: const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Icon(Icons.delete),
+      appBar: AppBar(title: const Text("Add Island")),
+      body: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              alignment: Alignment.bottomCenter,
+              child: CustomButton(
+                buttonColor: Colors.blue,
+                borderRadius: 4.0,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                text: "Back",
+              ),
             ),
           )
         ],
       ),
-      body: const Center(child: Text("Add Todo")),
     );
   }
 }

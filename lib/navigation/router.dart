@@ -33,7 +33,7 @@ class AppRouter {
         );
       case ADD_ISLAND_ROUTE:
         return MaterialPageRoute(
-          builder: (_) => AddTodoScreen(),
+          builder: (_) => const AddTodoScreen(),
         );
       default:
         return null;

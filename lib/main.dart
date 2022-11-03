@@ -1,10 +1,18 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit_bloc_poc/navigation/router.dart';
 
+import 'appStateContainer/app_state_container.dart';
+
 void main() {
-  runApp(IslandApp(
-    router: AppRouter(),
-  ));
+  runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    runApp(AppStateContainer(
+        child: IslandApp(
+      router: AppRouter(),
+    )));
+  }, (Object error, StackTrace stackTrace) async {});
 }
 
 class IslandApp extends StatelessWidget {

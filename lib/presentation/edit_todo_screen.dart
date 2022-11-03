@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../components/custom_button.dart';
 import '../models/island.dart';
+import '../style/app_colors.dart';
 
 class EditTodoScreen extends StatelessWidget {
   EditTodoScreen({Key? key}) : super(key: key);
@@ -8,19 +10,26 @@ class EditTodoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Edit Todo"),
-        actions: [
-          InkWell(
-            onTap: () {},
-            child: const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Icon(Icons.delete),
+      appBar: AppBar(title: const Text("Edit Island")),
+      body: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              alignment: Alignment.bottomCenter,
+              child: CustomButton(
+                buttonColor: Colors.blue,
+                borderRadius: 4.0,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                text: "Back",
+              ),
             ),
           )
         ],
       ),
-      body: const Center(child: Text("Edit Todo")),
     );
   }
 }
