@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../constants/strings.dart';
+import '../utils/strings.dart';
 import '../cubit/todos_cubit.dart';
 import '../services/network_service.dart';
 import '../services/repository.dart';
@@ -27,11 +27,11 @@ class AppRouter {
             child: TodosScreen(),
           ),
         );
-      case EDIT_TODO_ROUTE:
+      case EDIT_ISLAND_ROUTE:
         return MaterialPageRoute(
           builder: (_) => EditTodoScreen(),
         );
-      case ADD_TODO_ROUTE:
+      case ADD_ISLAND_ROUTE:
         return MaterialPageRoute(
           builder: (_) => AddTodoScreen(),
         );

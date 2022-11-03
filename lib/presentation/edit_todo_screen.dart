@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/todo.dart';
+import '../models/island.dart';
 
 class EditTodoScreen extends StatelessWidget {
   EditTodoScreen({Key? key}) : super(key: key);

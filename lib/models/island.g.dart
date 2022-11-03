@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'todo.dart';
+part of 'island.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-TodoModel _$TodoModelFromJson(Map<String, dynamic> json) {
-  return TodoModel(
+IslandModel _$IslandModelFromJson(Map<String, dynamic> json) {
+  return IslandModel(
     type: json['type'] as String,
     name: json['name'] as String,
     country: json['country'] as String,
@@ -17,7 +17,8 @@ TodoModel _$TodoModelFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TodoModelToJson(TodoModel instance) => <String, dynamic>{
+Map<String, dynamic> _$IslandModelToJson(IslandModel instance) =>
+    <String, dynamic>{
       'type': instance.type,
       'name': instance.name,
       'country': instance.country,

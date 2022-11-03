@@ -1,4 +1,4 @@
-import '../models/todo.dart';
+import '../models/island.dart';
 import 'network_service.dart';
 
 class Repository {
@@ -6,8 +6,8 @@ class Repository {
 
   Repository({this.networkService});
 
-  Future<List<TodoModel>> fetchTodos() async {
-    final todosRaw = await networkService!.fetchTodos();
-    return todosRaw;
+  Future<List<IslandModel>> fetchIslands() async {
+    final islandList = await networkService!.fetchIslands();
+    return islandList;
   }
 }

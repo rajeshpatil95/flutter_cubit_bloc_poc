@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'todo.g.dart';
+part 'island.g.dart';
 
 @JsonSerializable()
-class TodoModel {
+class IslandModel {
   String? type;
   String? name;
   String? country;
@@ -11,7 +11,7 @@ class TodoModel {
   String? currency;
   String? population;
 
-  TodoModel(
+  IslandModel(
       {this.type,
       this.name,
       this.country,
@@ -19,8 +19,8 @@ class TodoModel {
       this.currency,
       this.population});
 
-  factory TodoModel.fromJson(Map<String, dynamic> json) =>
-      _$TodoModelFromJson(json);
+  factory IslandModel.fromJson(Map<String, dynamic> json) =>
+      _$IslandModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$TodoModelToJson(this);
+  Map<String, dynamic> toJson() => _$IslandModelToJson(this);
 }

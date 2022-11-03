@@ -1,7 +1,7 @@
 class TestResponse {
   const TestResponse._();
 
-  static final List<Map<String, dynamic>> testTodo = [
+  static final List<Map<String, dynamic>> testIsland = [
     {
       "type": "island",
       "name": "Fiji",

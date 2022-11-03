@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../constants/strings.dart';
+import '../utils/strings.dart';
 import '../../cubit/todos_cubit.dart';
-import '../../models/todo.dart';
+import '../models/island.dart';
 
 class TodosScreen extends StatefulWidget {
   @override
@@ -26,7 +26,7 @@ class _TodosScreenState extends State<TodosScreen> {
           actions: [
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, ADD_TODO_ROUTE);
+                Navigator.pushNamed(context, ADD_ISLAND_ROUTE);
               },
               child: const Padding(
                 padding: EdgeInsets.all(10.0),
@@ -51,14 +51,14 @@ class _TodosScreenState extends State<TodosScreen> {
         ));
   }
 
-  Widget _todo(TodoModel todo, context) {
+  Widget _todo(IslandModel todo, context) {
     return InkWell(
         onTap: () =>
-            Navigator.pushNamed(context, EDIT_TODO_ROUTE, arguments: todo),
+            Navigator.pushNamed(context, EDIT_ISLAND_ROUTE, arguments: todo),
         child: _todoTile(todo, context));
   }
 
-  Widget _todoTile(TodoModel todo, context) {
+  Widget _todoTile(IslandModel todo, context) {
     return Container(
       alignment: Alignment.centerLeft,
       width: MediaQuery.of(context).size.width,
