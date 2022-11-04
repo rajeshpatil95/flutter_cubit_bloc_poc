@@ -1,13 +1,24 @@
 import 'dart:async';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_cubit_bloc_poc/navigation/router.dart';
 
 import 'appStateContainer/app_state_container.dart';
+import 'di/di_initializer.dart';
 
 void main() {
+  FlutterError.onError = (FlutterErrorDetails details) async {
+    if (kDebugMode) {
+      FlutterError.dumpErrorToConsole(details);
+    } else {
+      Zone.current.handleUncaughtError(details.exception, details.stack!);
+    }
+  };
+
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    DI.initializeDependencies();
     runApp(AppStateContainer(
         child: IslandApp(
       router: AppRouter(),
@@ -22,6 +33,7 @@ class IslandApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: router!.generateRoute,

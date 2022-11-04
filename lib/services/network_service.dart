@@ -6,11 +6,11 @@ import '../models/island.dart';
 import '../utils/test_response.dart';
 
 class NetworkService with MockServer {
-  Future<List<IslandModel>> fetchIslands() async {
+  Future<List<IslandModel>> fetchIslands() async { 
     final response = await mockApiCall(
         body: TestResponse.testIsland,
         method: HttpMethod.get,
-        callBackDelay: CallBackDelay.CALLBACK_DELAY_SHORT);
+        callBackDelay: CallBackDelay.CALLBACK_DELAY_SHORT);   
 
     if (response.isSuccessful()) {
       return jsonDecode(response.body)

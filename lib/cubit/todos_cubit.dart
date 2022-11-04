@@ -7,7 +7,7 @@ import '../services/repository.dart';
 part 'todos_state.dart';
 
 class TodosCubit extends Cubit<TodosState> {
-  final Repository? repository;
+  final IslandRepository? repository;
 
   TodosCubit({this.repository}) : super(TodosInitial());
 

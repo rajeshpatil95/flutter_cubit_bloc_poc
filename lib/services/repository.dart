@@ -1,11 +1,14 @@
 import '../models/island.dart';
 import 'network_service.dart';
 
-class Repository {
-  final NetworkService? networkService;
+abstract class IslandRepository {
+  Future<List<IslandModel>> fetchIslands();
+}
 
-  Repository({this.networkService});
+class IslandRepositoryImpl implements IslandRepository {
+  NetworkService? networkService = NetworkService();
 
+  @override
   Future<List<IslandModel>> fetchIslands() async {
     final islandList = await networkService!.fetchIslands();
     return islandList;
