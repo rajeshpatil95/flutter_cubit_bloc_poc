@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter_cubit_bloc_poc/utils/extensions.dart';
 
-import '../utils/mock_server.dart';
-import '../models/island.dart';
-import '../utils/test_response.dart';
+import '../../utils/mock_server.dart';
+import '../../models/island.dart';
+import '../../utils/test_response.dart';
 
 class NetworkService with MockServer {
   Future<List<IslandModel>> fetchIslands() async { 

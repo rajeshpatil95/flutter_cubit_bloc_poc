@@ -1,4 +1,4 @@
-part of 'todos_cubit.dart';
+part of 'island_cubit.dart';
 
 @immutable
 abstract class TodosState {}

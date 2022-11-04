@@ -1,4 +1,4 @@
-import 'package:flutter_cubit_bloc_poc/services/repository.dart';
+import 'package:flutter_cubit_bloc_poc/services/island/repository.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 import '../storage/shared_preferences.dart';
 

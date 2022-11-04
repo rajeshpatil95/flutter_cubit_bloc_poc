@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../utils/strings.dart';
-import '../../cubit/todos_cubit.dart';
-import '../models/island.dart';
+import '../../utils/strings.dart';
+import '../../cubit/island/island_cubit.dart';
+import '../../models/island.dart';
 
 class TodosScreen extends StatefulWidget {
   @override

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../components/custom_button.dart';
-import '../style/app_colors.dart';
+import '../../components/custom_button.dart';
+import '../../models/island.dart';
+import '../../style/app_colors.dart';
 
-class AddTodoScreen extends StatelessWidget {
-  const AddTodoScreen({Key? key}) : super(key: key);
+class EditIslandScreen extends StatelessWidget {
+  const EditIslandScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Add Island")),
+      appBar: AppBar(title: const Text("Edit Island")),
       body: Stack(
         children: <Widget>[
           Align(

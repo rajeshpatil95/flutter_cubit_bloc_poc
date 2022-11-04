@@ -1,4 +1,4 @@
-import '../models/island.dart';
+import '../../models/island.dart';
 import 'network_service.dart';
 
 abstract class IslandRepository {

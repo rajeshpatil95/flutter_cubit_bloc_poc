@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../di/di_initializer.dart';
 import '../utils/strings.dart';
-import '../cubit/todos_cubit.dart';
-import '../services/network_service.dart';
-import '../services/repository.dart';
-import '../presentation/add_todo_screen.dart';
-import '../presentation/edit_todo_screen.dart';
-import '../presentation/todos_screen.dart';
+import '../cubit/island/island_cubit.dart';
+import '../services/island/network_service.dart';
+import '../services/island/repository.dart';
+import '../presentation/island/add_island_screen.dart';
+import '../presentation/island/edit_island_screen.dart';
+import '../presentation/island/island_screen.dart';
 
 class AppRouter {
   late IslandRepository islandRepository;
@@ -26,9 +26,9 @@ class AppRouter {
             builder: (_) =>
                 BlocProvider.value(value: todosCubit, child: TodosScreen()));
       case EDIT_ISLAND_ROUTE:
-        return MaterialPageRoute(builder: (_) => EditTodoScreen());
+        return MaterialPageRoute(builder: (_) => const EditIslandScreen());
       case ADD_ISLAND_ROUTE:
-        return MaterialPageRoute(builder: (_) => const AddTodoScreen());
+        return MaterialPageRoute(builder: (_) => const AddIslandScreen());
       default:
         return null;
     }

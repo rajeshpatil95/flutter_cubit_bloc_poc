@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import '../models/island.dart';
-import '../services/repository.dart';
-part 'todos_state.dart';
+import '../../models/island.dart';
+import '../../services/island/repository.dart';
+part 'island_state.dart';
 
 class TodosCubit extends Cubit<TodosState> {
   final IslandRepository? repository;
