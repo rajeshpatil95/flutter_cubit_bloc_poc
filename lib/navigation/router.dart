@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit_bloc_poc/presentation/landing/landing_page.dart';
 
 import '../di/di_initializer.dart';
 import '../utils/strings.dart';
@@ -23,12 +24,14 @@ class AppRouter {
     switch (settings.name) {
       case "/":
         return MaterialPageRoute(
-            builder: (_) =>
-                BlocProvider.value(value: todosCubit, child: TodosScreen()));
+            builder: (_) => const LandingPage());
+                // BlocProvider.value(value: todosCubit, child: TodosScreen()));
       case EDIT_ISLAND_ROUTE:
         return MaterialPageRoute(builder: (_) => const EditIslandScreen());
       case ADD_ISLAND_ROUTE:
         return MaterialPageRoute(builder: (_) => const AddIslandScreen());
+      case LANDING_ROUTE:
+        return MaterialPageRoute(builder: (_) => const LandingPage());
       default:
         return null;
     }
