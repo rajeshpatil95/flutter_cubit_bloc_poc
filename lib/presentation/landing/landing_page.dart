@@ -83,7 +83,7 @@ class LandingPage extends StatelessWidget {
                     child: PrimaryButton(
                       text: 'Continue',
                       onPressed: () {
-                        Navigator.pushNamed(context, HOME_ROUTE);
+                        Navigator.pushNamed(context, LANDING_PHONE_ROUTE);
                       },
                     ),
                   ),
