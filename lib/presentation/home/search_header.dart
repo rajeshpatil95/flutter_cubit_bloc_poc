@@ -6,10 +6,12 @@ import '../../style/font.dart';
 import '../../style/spacing.dart';
 
 class SearchHeader extends SliverPersistentHeaderDelegate {
+  Key? key;
+  String? title;
+  SearchHeader({this.key, this.title});
+
   final double minTopBarHeight = 100;
   final double maxTopBarHeight = 180;
-
-  SearchHeader();
 
   Widget _searchBarWidget(num shrinkFactor) {
     return Positioned(
@@ -101,9 +103,9 @@ class SearchHeader extends SliverPersistentHeaderDelegate {
                     ),
                   ),
                   AppSpacing.sizeBoxWt20,
-                  const Text("Choose your plan",
+                  Text(this.title!,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: AppFontSize.size18,
                           color: AppColors.white)),
