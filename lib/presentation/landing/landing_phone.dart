@@ -4,6 +4,7 @@ import 'package:flutter_cubit_bloc_poc/components/custom_appbar.dart';
 import 'package:flutter_cubit_bloc_poc/components/textfield_group.dart';
 import 'package:flutter_cubit_bloc_poc/components/primary_button.dart';
 import 'package:flutter_cubit_bloc_poc/style/app_colors.dart';
+import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
 
 import '../../components/dropdown_menu.dart';
 
@@ -89,7 +90,7 @@ class _LandingPhoneState extends State<LandingPhone> {
                     ),
                   ),
                   const SizedBox(height: 12.5),
-                  const DropDownMenu(),
+                  const FittedBox(child: DropDownMenu()),
                   const SizedBox(height: 19),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -148,7 +149,9 @@ class _LandingPhoneState extends State<LandingPhone> {
                     ),
                     child: PrimaryButton(
                       text: 'Discover what you can get',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, HOME_ROUTE);
+                      },
                     ),
                   ),
                 ],
