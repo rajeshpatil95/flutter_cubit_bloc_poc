@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/home/enter_postcode_screen.dart';
 
 import '../di/di_initializer.dart';
+import '../presentation/activation/activation_process_screen.dart';
+import '../presentation/activation/activation_screen.dart';
 import '../presentation/home/discover_plans_screen.dart';
 import '../presentation/home/home_screen.dart';
 import '../presentation/landing/landing_page.dart';
@@ -41,6 +43,11 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const AddIslandScreen());
       case LANDING_ROUTE:
         return MaterialPageRoute(builder: (_) => const LandingPage());
+      case ACTIVATION_ROUTE:
+        return MaterialPageRoute(builder: (_) => const ActivationScreen());
+      case ACTIVATION_PROCESS_ROUTE:
+        return MaterialPageRoute(
+            builder: (_) => const ActivationProcessScreen());
       default:
         return null;
     }

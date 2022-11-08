@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cubit_bloc_poc/components/monthly_card.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/home/search_header.dart';
 import 'package:flutter_cubit_bloc_poc/style/spacing.dart';
+import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
 
 import '../../components/extra_card.dart';
 import '../../components/plan_card.dart';
@@ -108,7 +109,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _checkoutWidget() {
+  Widget _checkoutWidget(BuildContext context) {
     return Align(
         alignment: Alignment.bottomCenter,
         child: Container(
@@ -159,7 +160,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, ACTIVATION_ROUTE);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.accent,
                   shape: RoundedRectangleBorder(
@@ -189,13 +192,13 @@ class HomeScreen extends StatelessWidget {
             SliverPersistentHeader(
               pinned: true,
               floating: false,
-              delegate: SearchHeader(),
+              delegate: SearchHeader(title: 'Choose your plan'),
             ),
             SliverFillRemaining(
               fillOverscroll: true,
               hasScrollBody: true,
               child: Stack(
-                children: <Widget>[_sliverContent(), _checkoutWidget()],
+                children: <Widget>[_sliverContent(), _checkoutWidget(context)],
               ),
             )
           ],
