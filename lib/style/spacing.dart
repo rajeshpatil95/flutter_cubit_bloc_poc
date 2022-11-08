@@ -34,6 +34,7 @@ class AppSpacing {
   static const sizeBoxWt8 = const SizedBox(width: 8.0);
   static const sizeBoxWt9 = const SizedBox(width: 9.0);
   static const sizeBoxWt10 = const SizedBox(width: 10.0);
+  static const sizeBoxWt20 = const SizedBox(width: 10.0);
 }
 
 class Dimensions {
