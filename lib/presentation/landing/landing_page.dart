@@ -4,6 +4,7 @@ import 'package:flutter_cubit_bloc_poc/components/custom_appbar.dart';
 import 'package:flutter_cubit_bloc_poc/components/textfield_group.dart';
 import 'package:flutter_cubit_bloc_poc/components/primary_button.dart';
 
+import '../../utils/strings.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -53,7 +54,6 @@ class LandingPage extends StatelessWidget {
                     ),
                   ),
 
-
                   const SizedBox(height: 24),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -85,11 +85,11 @@ class LandingPage extends StatelessWidget {
                     ),
                     child: PrimaryButton(
                       text: 'Continue',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, HOME_ROUTE);
+                      },
                     ),
                   ),
-
-
                 ],
               ),
             ),
