@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/home/enter_postcode_screen.dart';
+import 'package:flutter_cubit_bloc_poc/presentation/landing/landing_phone.dart';
 
 import '../di/di_initializer.dart';
 import '../presentation/home/discover_plans_screen.dart';
@@ -26,7 +27,7 @@ class AppRouter {
   MaterialPageRoute? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case "/":
-        return MaterialPageRoute(builder: (_) => const LandingPage());
+        return MaterialPageRoute(builder: (_) => const LandingPhone());
       case DISCOVER_PLANS_ROUTE:
         return MaterialPageRoute(builder: (_) => const DiscoverPlansScreen());
       case HOME_ROUTE:
@@ -41,6 +42,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const AddIslandScreen());
       case LANDING_ROUTE:
         return MaterialPageRoute(builder: (_) => const LandingPage());
+      case LANDING_PHONE_ROUTE:
+        return MaterialPageRoute(builder: (_) => const LandingPhone());
       default:
         return null;
     }
