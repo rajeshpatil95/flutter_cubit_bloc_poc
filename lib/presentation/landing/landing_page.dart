@@ -53,7 +53,6 @@ class LandingPage extends StatelessWidget {
                       fit: BoxFit.fitWidth,
                     ),
                   ),
-
                   const SizedBox(height: 24),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -74,8 +73,6 @@ class LandingPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // padding: const EdgeInsets.only(left: 76,right: 75,top: 21,bottom: 33),
-
                   Padding(
                     padding: const EdgeInsets.only(
                       top: 21,
