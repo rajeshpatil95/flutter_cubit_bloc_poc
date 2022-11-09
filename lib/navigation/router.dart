@@ -7,6 +7,7 @@ import '../presentation/activation/activation_process_screen.dart';
 import '../presentation/activation/activation_screen.dart';
 import '../presentation/home/discover_plans_screen.dart';
 import '../presentation/home/home_screen.dart';
+import '../presentation/home/product_detail_screen.dart';
 import '../presentation/landing/landing_page.dart';
 import '../presentation/landing/landing_phone.dart';
 import '../utils/strings.dart';
@@ -52,6 +53,8 @@ class AppRouter {
             builder: (_) => const ActivationProcessScreen());
       case CALL_PLAN_ROUTE:
         return MaterialPageRoute(builder: (_) => const CallPlanScreen());
+      case PRODUCT_DETAIL_ROUTE:
+        return MaterialPageRoute(builder: (_) => const ProductDetailScreen());
       default:
         return null;
     }

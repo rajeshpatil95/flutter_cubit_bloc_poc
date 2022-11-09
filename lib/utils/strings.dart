@@ -9,3 +9,4 @@ const ACTIVATION_PROCESS_ROUTE = "/activation_process_route";
 const LANDING_ROUTE = "/landing_page";
 const LANDING_PHONE_ROUTE = "/landing_phone";
 const CALL_PLAN_ROUTE = "/call_plan_screen";
+const PRODUCT_DETAIL_ROUTE = "/product_detail_screen";
