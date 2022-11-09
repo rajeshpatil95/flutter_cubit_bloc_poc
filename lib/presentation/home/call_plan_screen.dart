@@ -20,65 +20,47 @@ class _CallPlanScreenState extends State<CallPlanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      extendBody: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        toolbarHeight: 80,
+        title: Text(
+          callPlanVM.title,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+        ),
+        iconTheme:
+            IconTheme.of(context).copyWith(color: "#FFFFFF".hexToColor()),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              //desired action command
+            },
+            child: Container(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Image.asset('assets/images/user.png'),
+              ),
+            ),
+          ),
+        ],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(24),
+                  bottomRight: Radius.circular(24)),
+              gradient: LinearGradient(
+                  colors: ["#007B85".hexToColor(), "#007B85".hexToColor()],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter)),
+        ),
+        systemOverlayStyle: SystemUiOverlayStyle.light,
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 100,
-              alignment: Alignment.bottomCenter,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(24),
-                      bottomRight: Radius.circular(24)),
-                  gradient: LinearGradient(
-                      colors: ["#007B85".hexToColor(), "#007B85".hexToColor()],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter)),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Image.asset('assets/images/back.png'),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      callPlanVM.title,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: "#FFFFFF".hexToColor(),
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      //desired action command
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Image.asset('assets/images/user.png'),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
             paddedWidget(
               childWidget: Column(
                 mainAxisSize: MainAxisSize.min,
