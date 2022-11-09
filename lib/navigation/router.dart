@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit_bloc_poc/presentation/home/call_plan_screen.dart';
 
 import '../di/di_initializer.dart';
 import '../presentation/activation/activation_process_screen.dart';
@@ -49,6 +50,8 @@ class AppRouter {
       case ACTIVATION_PROCESS_ROUTE:
         return MaterialPageRoute(
             builder: (_) => const ActivationProcessScreen());
+      case CALL_PLAN_ROUTE:
+        return MaterialPageRoute(builder: (_) => const CallPlanScreen());
       default:
         return null;
     }
