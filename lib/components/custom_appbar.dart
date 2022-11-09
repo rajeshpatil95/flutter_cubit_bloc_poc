@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+  final Key scaffoldKey;
+
+  CustomAppBar({
+    required this.scaffoldKey,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -9,10 +13,15 @@ class CustomAppBar extends StatelessWidget {
       padding: const EdgeInsets.only(top: 17),
       child: Row(
         children: [
-          Image.asset(
-            'assets/images/hamberger.png',
-            height: 16,
-            width: 22,
+          InkWell(
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
+            child: Image.asset(
+              'assets/images/hamberger.png',
+              height: 16,
+              width: 22,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 24),

@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit_bloc_poc/components/background_image.dart';
 import 'package:flutter_cubit_bloc_poc/components/custom_appbar.dart';
+import 'package:flutter_cubit_bloc_poc/components/custom_drawer.dart';
 import 'package:flutter_cubit_bloc_poc/components/textfield_group.dart';
 import 'package:flutter_cubit_bloc_poc/components/primary_button.dart';
 
 import '../../utils/strings.dart';
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
+
+  @override
+  State<LandingPage> createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +24,20 @@ class LandingPage extends StatelessWidget {
         const BackGroundImage(),
         Scaffold(
           backgroundColor: Colors.transparent,
+          drawer: const CustomDrawer(),
           body: SafeArea(
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(
+                  Padding(
+                    padding: const EdgeInsets.only(
                       left: 21,
                       right: 20.67,
                     ),
-                    child: CustomAppBar(),
+                    child: CustomAppBar(
+                      scaffoldKey: _scaffoldKey,
+                    ),
                   ),
                   const SizedBox(height: 43),
                   const Padding(
