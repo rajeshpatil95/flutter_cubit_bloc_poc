@@ -31,9 +31,14 @@ final List<MonthlyCard> monthlyCardList = [
   const MonthlyCard()
 ];
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   Widget _sliverContent() {
     return ListView(
       children: [
@@ -99,8 +104,11 @@ class HomeScreen extends StatelessWidget {
         CarouselSlider(
           options: CarouselOptions(height: 300),
           items: monthlyCardList
-              .map((monthlyCard) => Container(
-                    child: Center(child: monthlyCard),
+              .map((monthlyCard) => InkWell(
+                    onTap: () => Navigator.pushNamed(context, CALL_PLAN_ROUTE),
+                    child: Container(
+                      child: Center(child: monthlyCard),
+                    ),
                   ))
               .toList(),
         ),
