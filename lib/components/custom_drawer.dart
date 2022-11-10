@@ -60,7 +60,8 @@ class CustomDrawer extends StatelessWidget {
                         'Products',
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Rubrik',
                         ),
                       ),
                       onTap: () {},
@@ -73,7 +74,8 @@ class CustomDrawer extends StatelessWidget {
                         'Help',
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Rubrik',
                         ),
                       ),
                       onTap: () {},
@@ -86,7 +88,8 @@ class CustomDrawer extends StatelessWidget {
                         'Our responsibility',
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Rubrik',
                         ),
                       ),
                       onTap: () {},
@@ -99,7 +102,8 @@ class CustomDrawer extends StatelessWidget {
                         'Our company',
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Rubrik',
                         ),
                       ),
                       onTap: () {},
@@ -112,7 +116,8 @@ class CustomDrawer extends StatelessWidget {
                         'Legals',
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Rubrik',
                         ),
                       ),
                       onTap: () {},
