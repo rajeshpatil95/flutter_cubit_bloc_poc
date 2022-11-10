@@ -10,7 +10,13 @@ enum ActivationTabs { aboutYou, billing, review }
 class ActivationHeader extends SliverPersistentHeaderDelegate {
   Key? key;
   Function? onPressed;
-  ActivationHeader({this.key, this.onPressed});
+  bool? isAboutYouToBillingEnabled;
+  bool? isBillingToReviewEnabled;
+  ActivationHeader(
+      {this.key,
+      this.onPressed,
+      this.isAboutYouToBillingEnabled = false,
+      this.isBillingToReviewEnabled = false});
 
   final double minTopBarHeight = 100;
   final double maxTopBarHeight = 180;
@@ -34,71 +40,85 @@ class ActivationHeader extends SliverPersistentHeaderDelegate {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      onPressed!(ActivationTabs.aboutYou);
-                    },
-                    icon: const Icon(
-                      Icons.account_box_outlined,
-                      color: AppColors.white,
-                    ),
-                  ),
-                  AppSpacing.sizeBoxHt5,
-                  const Text('About you',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: AppFontSize.size14,
-                          color: AppColors.white)),
-                ],
+              GestureDetector(
+                onTap: () {},
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    isAboutYouToBillingEnabled!
+                        ? const Icon(
+                            Icons.check_circle_rounded,
+                            color: AppColors.white,
+                          )
+                        : const Icon(
+                            Icons.account_box_outlined,
+                            color: AppColors.white,
+                          ),
+                    AppSpacing.sizeBoxHt5,
+                    const Text('About you',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: AppFontSize.size14,
+                            color: AppColors.white)),
+                  ],
+                ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      onPressed!(ActivationTabs.billing);
-                    },
-                    icon: const Icon(
-                      Icons.save,
-                      color: AppColors.white,
-                    ),
-                  ),
-                  AppSpacing.sizeBoxHt5,
-                  const Text('Billing',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: AppFontSize.size14,
-                          color: AppColors.white)),
-                ],
+              GestureDetector(
+                onTap: () {
+                  if (isAboutYouToBillingEnabled == true &&
+                      isBillingToReviewEnabled == false) {
+                    onPressed!(ActivationTabs.billing);
+                  }
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    isBillingToReviewEnabled!
+                        ? const Icon(
+                            Icons.check_circle_rounded,
+                            color: AppColors.white,
+                          )
+                        : const Icon(
+                            Icons.save,
+                            color: AppColors.white,
+                          ),
+                    AppSpacing.sizeBoxHt5,
+                    const Text('Billing',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: AppFontSize.size14,
+                            color: AppColors.white)),
+                  ],
+                ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      onPressed!(ActivationTabs.review);
-                    },
-                    icon: const Icon(
+              GestureDetector(
+                onTap: () {
+                  if (isAboutYouToBillingEnabled == true &&
+                      isBillingToReviewEnabled == true) {
+                    onPressed!(ActivationTabs.review);
+                  }
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    Icon(
                       Icons.chat_outlined,
                       color: AppColors.white,
                     ),
-                  ),
-                  AppSpacing.sizeBoxHt5,
-                  const Text('Review',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: AppFontSize.size14,
-                          color: AppColors.white)),
-                ],
+                    AppSpacing.sizeBoxHt5,
+                    Text('Review',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: AppFontSize.size14,
+                            color: AppColors.white)),
+                  ],
+                ),
               ),
             ],
           )),

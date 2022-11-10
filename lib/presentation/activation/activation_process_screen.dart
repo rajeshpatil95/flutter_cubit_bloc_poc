@@ -18,17 +18,32 @@ class ActivationProcessScreen extends StatefulWidget {
 
 class _ActivationProcessScreenState extends State<ActivationProcessScreen> {
   late ActivationTabs _currentActiveTab;
+  late bool? isAboutYouToBillingEnabled;
+  late bool? isBillingToReviewEnabled;
+
   @override
   void initState() {
     super.initState();
     _currentActiveTab = ActivationTabs.aboutYou;
+    isAboutYouToBillingEnabled = false;
+    isBillingToReviewEnabled = false;
   }
 
   Widget _tabWidget() {
     if (_currentActiveTab == ActivationTabs.aboutYou) {
-      return const AboutYouTab();
+      return AboutYouTab(onPressed: (value) {
+        setState(() {
+          isAboutYouToBillingEnabled = value;
+          _currentActiveTab = ActivationTabs.billing;
+        });
+      });
     } else if (_currentActiveTab == ActivationTabs.billing) {
-      return const BillingTab();
+      return BillingTab(onPressed: (value) {
+        setState(() {
+          isBillingToReviewEnabled = value;
+          _currentActiveTab = ActivationTabs.review;
+        });
+      });
     } else {
       return const ReviewTab();
     }
@@ -83,7 +98,26 @@ class _ActivationProcessScreenState extends State<ActivationProcessScreen> {
                           fontSize: AppFontSize.size16,
                           color: AppColors.white)),
                 ],
-              )
+              ),
+              (isAboutYouToBillingEnabled == true &&
+                      isBillingToReviewEnabled == true)
+                  ? ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.accent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                      ),
+                      child: const Text(
+                        'Place Order',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: AppFontSize.size18,
+                            color: AppColors.black),
+                      ),
+                    )
+                  : Container()
             ],
           ),
         ));
@@ -99,11 +133,14 @@ class _ActivationProcessScreenState extends State<ActivationProcessScreen> {
             SliverPersistentHeader(
               pinned: true,
               floating: false,
-              delegate: ActivationHeader(onPressed: (value) {
-                setState(() {
-                  _currentActiveTab = value;
-                });
-              }),
+              delegate: ActivationHeader(
+                  isAboutYouToBillingEnabled: isAboutYouToBillingEnabled,
+                  isBillingToReviewEnabled: isBillingToReviewEnabled,
+                  onPressed: (value) {
+                    setState(() {
+                      _currentActiveTab = value;
+                    });
+                  }),
             ),
             SliverFillRemaining(
               fillOverscroll: true,
