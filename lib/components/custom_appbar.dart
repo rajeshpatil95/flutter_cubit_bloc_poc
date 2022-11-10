@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget {
   final Key scaffoldKey;
 
-  CustomAppBar({
+  const CustomAppBar({
+    super.key,
     required this.scaffoldKey,
   });
 
@@ -23,12 +24,15 @@ class CustomAppBar extends StatelessWidget {
               width: 22,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 24),
-            child: Image.asset(
-              'assets/images/search.png',
-              height: 22,
-              width: 22,
+          Visibility(
+            visible: false,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 24),
+              child: Image.asset(
+                'assets/images/search.png',
+                height: 22,
+                width: 22,
+              ),
             ),
           ),
           Expanded(
