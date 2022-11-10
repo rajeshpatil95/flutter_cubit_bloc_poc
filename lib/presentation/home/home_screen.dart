@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, ACTIVATION_ROUTE);
+                  Navigator.pushNamed(context, SCHEDULE_SLOT_ROUTE);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.accent,

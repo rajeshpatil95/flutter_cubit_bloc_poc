@@ -44,6 +44,7 @@ dependencies:
   shared_preferences: ^2.0.3
   carousel_slider: ^4.1.1
   custom_check_box: ^0.0.4
+  syncfusion_flutter_datepicker: ^20.3.56
 
 dev_dependencies:
   flutter_test:
