@@ -11,4 +11,6 @@ class AppColors {
   static const Color accent = Color(0xffFFE600);
   static const Color errorColor = Color(0xFFB71C1C);
   static const Color hintColor = Color(0xFF535353);
+  static const Color greyWhite = Color(0xFFD8D8D9);
 }
+
