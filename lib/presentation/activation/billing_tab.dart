@@ -34,7 +34,8 @@ class _BillingTabState extends State<BillingTab> {
               const SizedBox(height: 24),
               const Padding(
                 padding: EdgeInsets.only(
-                  right: 11,
+                  left: 5,
+                  right: 19,
                   bottom: 42,
                 ),
                 child: Text(
@@ -42,7 +43,7 @@ class _BillingTabState extends State<BillingTab> {
                   style: TextStyle(
                     color: AppColors.greyGradient,
                     fontSize: AppFontSize.size18,
-                    height: 2,
+                    height: 1.8,
                     fontFamily: AppFont.rubrik,
                   ),
                 ),
@@ -54,10 +55,10 @@ class _BillingTabState extends State<BillingTab> {
                   CustomCheckBox(
                     value: shouldCheck,
                     shouldShowBorder: true,
-                    borderColor: AppColors.grey,
+                    borderColor: AppColors.greyWhite,
                     checkedFillColor: AppColors.primary,
-                    uncheckedFillColor: AppColors.greyWhite,
-                    uncheckedIconColor: AppColors.greyWhite,
+                    uncheckedFillColor: AppColors.lightWhite,
+                    uncheckedIconColor: AppColors.lightWhite,
                     borderRadius: 8,
                     borderWidth: 1,
                     checkBoxSize: 24,
@@ -76,7 +77,7 @@ class _BillingTabState extends State<BillingTab> {
                         style: TextStyle(
                           color: AppColors.grey,
                           fontSize: AppFontSize.size16,
-                          height: 2,
+                          height: 1.8,
                           fontFamily: AppFont.rubrik,
                         ),
                       ),
@@ -95,9 +96,8 @@ class _BillingTabState extends State<BillingTab> {
                       'Sort code',
                       style: TextStyle(
                         color: AppColors.greyGradient,
+                        fontFamily: AppFont.rubrikBold,
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Rubrik Bold',
                       ),
                     ),
                   ),
@@ -111,12 +111,13 @@ class _BillingTabState extends State<BillingTab> {
                           controller: _txtController,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                              borderSide:
-                                  const BorderSide(color: AppColors.grey),
+                              borderSide: const BorderSide(
+                                color: AppColors.greyWhite,
+                              ),
                               borderRadius: BorderRadius.circular(16.0),
                             ),
                             filled: true,
-                            fillColor: AppColors.greyWhite,
+                            fillColor: AppColors.lightWhite,
                             hintText: '04-00-04',
                           ),
                           onChanged: (text) {},
@@ -181,6 +182,7 @@ Widget _directDebit() {
           color: AppColors.primary,
           fontSize: AppFontSize.size16,
           decoration: TextDecoration.underline,
+          fontFamily: AppFont.rubrik,
         ),
       ),
     ],

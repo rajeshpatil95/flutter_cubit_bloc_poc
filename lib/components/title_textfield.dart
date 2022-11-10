@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cubit_bloc_poc/style/font.dart';
 
 import '../style/app_colors.dart';
 
@@ -20,9 +21,8 @@ class TitleTextField extends StatelessWidget {
             text,
             style: const TextStyle(
               color: AppColors.greyGradient,
+              fontFamily: AppFont.rubrikBold,
               fontSize: 18,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Rubrik Bold',
             ),
           ),
         ),
@@ -30,11 +30,13 @@ class TitleTextField extends StatelessWidget {
         TextField(
           decoration: InputDecoration(
             border: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppColors.grey),
+              borderSide: const BorderSide(
+                color: AppColors.greyWhite,
+              ),
               borderRadius: BorderRadius.circular(16.0),
             ),
             filled: true,
-            fillColor: AppColors.greyWhite,
+            fillColor: AppColors.lightWhite,
           ),
         ),
       ],

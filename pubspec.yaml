@@ -89,7 +89,14 @@ flutter:
     - family: Rubrik
       fonts:
         - asset: assets/fonts/Rubrik.otf
+
+    - family: Rubrik Bold
+      fonts:
         - asset: assets/fonts/Rubrik Bold.otf
+
+    - family: Rubrik Medium
+      fonts:
+        - asset: assets/fonts/Rubrik _Medium.otf
 #           style: italic
   #   - family: Trajan Pro
   #     fonts:
