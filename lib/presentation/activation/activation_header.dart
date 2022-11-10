@@ -10,7 +10,13 @@ enum ActivationTabs { aboutYou, billing, review }
 class ActivationHeader extends SliverPersistentHeaderDelegate {
   Key? key;
   Function? onPressed;
-  ActivationHeader({this.key, this.onPressed});
+  bool? isAboutYouToBillingEnabled;
+  bool? isBillingToReviewEnabled;
+  ActivationHeader(
+      {this.key,
+      this.onPressed,
+      this.isAboutYouToBillingEnabled = false,
+      this.isBillingToReviewEnabled = false});
 
   final double minTopBarHeight = 100;
   final double maxTopBarHeight = 180;
@@ -35,19 +41,22 @@ class ActivationHeader extends SliverPersistentHeaderDelegate {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
-                onTap: () {
-                  onPressed!(ActivationTabs.aboutYou);
-                },
+                onTap: () {},
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Icon(
-                      Icons.account_box_outlined,
-                      color: AppColors.white,
-                    ),
+                  children: [
+                    isAboutYouToBillingEnabled!
+                        ? const Icon(
+                            Icons.check_circle_rounded,
+                            color: AppColors.white,
+                          )
+                        : const Icon(
+                            Icons.account_box_outlined,
+                            color: AppColors.white,
+                          ),
                     AppSpacing.sizeBoxHt5,
-                    Text('About you',
+                    const Text('About you',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
@@ -58,18 +67,26 @@ class ActivationHeader extends SliverPersistentHeaderDelegate {
               ),
               GestureDetector(
                 onTap: () {
-                  onPressed!(ActivationTabs.billing);
+                  if (isAboutYouToBillingEnabled == true &&
+                      isBillingToReviewEnabled == false) {
+                    onPressed!(ActivationTabs.billing);
+                  }
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Icon(
-                      Icons.save,
-                      color: AppColors.white,
-                    ),
+                  children: [
+                    isBillingToReviewEnabled!
+                        ? const Icon(
+                            Icons.check_circle_rounded,
+                            color: AppColors.white,
+                          )
+                        : const Icon(
+                            Icons.save,
+                            color: AppColors.white,
+                          ),
                     AppSpacing.sizeBoxHt5,
-                    Text('Billing',
+                    const Text('Billing',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
@@ -80,7 +97,10 @@ class ActivationHeader extends SliverPersistentHeaderDelegate {
               ),
               GestureDetector(
                 onTap: () {
-                  onPressed!(ActivationTabs.review);
+                  if (isAboutYouToBillingEnabled == true &&
+                      isBillingToReviewEnabled == true) {
+                    onPressed!(ActivationTabs.review);
+                  }
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,

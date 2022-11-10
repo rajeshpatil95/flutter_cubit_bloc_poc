@@ -7,7 +7,8 @@ import 'package:flutter_cubit_bloc_poc/style/font.dart';
 import '../../components/title_textfield.dart';
 
 class BillingTab extends StatefulWidget {
-  const BillingTab({super.key});
+  final Function? onPressed;
+  const BillingTab({super.key, this.onPressed});
 
   @override
   State<BillingTab> createState() => _BillingTabState();
@@ -150,7 +151,9 @@ class _BillingTabState extends State<BillingTab> {
               ),
               PrimaryButton(
                 text: 'Continue',
-                onPressed: () {},
+                onPressed: () {
+                  widget.onPressed!(true);
+                },
               ),
               const SizedBox(
                 height: 80,

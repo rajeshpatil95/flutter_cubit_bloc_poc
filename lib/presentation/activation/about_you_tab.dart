@@ -8,7 +8,8 @@ import '../../style/app_colors.dart';
 import '../../style/font.dart';
 
 class AboutYouTab extends StatefulWidget {
-  const AboutYouTab({super.key});
+  final Function? onPressed;
+  const AboutYouTab({super.key, this.onPressed});
 
   @override
   State<AboutYouTab> createState() => _AboutYouTabState();
@@ -447,7 +448,9 @@ class _AboutYouTabState extends State<AboutYouTab> {
           AppSpacing.sizeBoxHt30,
           PrimaryButton(
             text: 'Continue',
-            onPressed: () {},
+            onPressed: () {
+              widget.onPressed!(true);
+            },
           ),
         ],
       ),
