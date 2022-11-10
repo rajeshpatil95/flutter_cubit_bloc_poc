@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter_cubit_bloc_poc/utils/extensions.dart';
 import 'package:http/http.dart' as http;
 
+import '../services/base_request.dart';
+
 mixin MockServer {
   Future<http.Response> mockApiCall(
       {String? endpoint,
@@ -21,5 +23,3 @@ enum CallBackDelay {
   CALLBACK_DELAY_MEDIUM,
   CALLBACK_DELAY_LONG
 }
-
-enum HttpMethod { get, post, put, delete }

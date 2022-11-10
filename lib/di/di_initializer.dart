@@ -1,5 +1,6 @@
 import 'package:flutter_cubit_bloc_poc/services/island/repository.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import '../services/address/repository.dart';
 import '../storage/shared_preferences.dart';
 
 class DI {
@@ -8,6 +9,7 @@ class DI {
   factory DI.initializeDependencies() {
     addDependency<Preferences>(PreferencesImpl(), true);
     addDependency<IslandRepository>(IslandRepositoryImpl(), true);
+    addDependency<AddressRepository>(AddressRepositoryImpl(), true);
     return DI();
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit_bloc_poc/components/background_image.dart';
 import 'package:flutter_cubit_bloc_poc/components/custom_appbar.dart';
 import 'package:flutter_cubit_bloc_poc/components/custom_drawer.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_cubit_bloc_poc/style/app_colors.dart';
 import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
 
 import '../../components/dropdown_menu.dart';
+import '../../cubit/address/address_cubit.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -18,6 +20,13 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   final TextEditingController textPasscodeController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    BlocProvider.of<AddressCubit>(context).fetchAddress();
+  }
 
   @override
   Widget build(BuildContext context) {
