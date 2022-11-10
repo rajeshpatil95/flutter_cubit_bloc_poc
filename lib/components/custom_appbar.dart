@@ -37,11 +37,11 @@ class CustomAppBar extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 69),
+              padding: const EdgeInsets.only(left: 99),
               child: Image.asset(
                 'assets/images/logo.png',
-                height: 75,
-                width: 45,
+                height: 80,
+                width: 50,
               ),
             ),
           ),

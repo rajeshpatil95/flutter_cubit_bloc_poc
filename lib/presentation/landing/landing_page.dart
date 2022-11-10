@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_cubit_bloc_poc/components/background_image.dart';
 import 'package:flutter_cubit_bloc_poc/components/custom_appbar.dart';
 import 'package:flutter_cubit_bloc_poc/components/custom_drawer.dart';
 import 'package:flutter_cubit_bloc_poc/components/primary_button.dart';
 import 'package:flutter_cubit_bloc_poc/style/app_colors.dart';
+import 'package:flutter_cubit_bloc_poc/style/font.dart';
 import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
 
 import '../../components/dropdown_menu.dart';
@@ -84,22 +86,30 @@ class _LandingPageState extends State<LandingPage> {
                               color: Colors.white,
                               fontSize: 18,
                               fontWeight: FontWeight.w900,
-                              fontFamily: 'Rubrik',
+                              fontFamily: AppFont.rubrikMedium,
                             ),
                           ),
                         ),
                         const SizedBox(height: 12),
                         TextField(
+                          keyboardType: TextInputType.text,
+                          // inputFormatters: <TextInputFormatter>[
+                          //   FilteringTextInputFormatter.allow(
+                          //     // RegExp(r'^\d+(?:\.\d+)?$'),
+                          //     RegExp(
+                          //         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\><*~]).{8,}/pre>'),
+                          //   ),
+                          // ],
                           maxLength: 7,
                           controller: textPasscodeController,
-                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                               counterText: '',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               filled: true,
-                              hintStyle: TextStyle(color: Colors.grey[800]),
+                              hintStyle: const TextStyle(
+                                  color: AppColors.greyGradient),
                               hintText: 'SE3 7PQ',
                               fillColor: Colors.white),
                         ),
@@ -119,7 +129,7 @@ class _LandingPageState extends State<LandingPage> {
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Rubrik',
+                          fontFamily: AppFont.rubrikMedium,
                         ),
                       ),
                     ),
@@ -142,7 +152,7 @@ class _LandingPageState extends State<LandingPage> {
                               color: Colors.white,
                               fontSize: 18,
                               fontWeight: FontWeight.w900,
-                              fontFamily: 'Rubrik',
+                              fontFamily: AppFont.rubrikMedium,
                             ),
                           ),
                         ),
@@ -155,7 +165,7 @@ class _LandingPageState extends State<LandingPage> {
                               color: Colors.white,
                               fontSize: 14,
                               fontWeight: FontWeight.w900,
-                              fontFamily: 'Rubrik',
+                              fontFamily: AppFont.rubrikMedium,
                             ),
                           ),
                         ),
@@ -170,7 +180,7 @@ class _LandingPageState extends State<LandingPage> {
                               ),
                               filled: true,
                               hintStyle: const TextStyle(
-                                color: AppColors.hintColor,
+                                color: AppColors.greyWhite,
                               ),
                               hintMaxLines: 1,
                               hintText:
@@ -182,8 +192,8 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                      top: 32,
-                      bottom: 60,
+                      top: 21,
+                      bottom: 90,
                       right: 20,
                       left: 21,
                     ),

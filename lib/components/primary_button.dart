@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit_bloc_poc/style/app_colors.dart';
 
+import '../style/font.dart';
+
 class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -15,7 +17,7 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 400,
-      height: 70,
+      height: 65,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: AppColors.accent, // background
@@ -29,9 +31,11 @@ class PrimaryButton extends StatelessWidget {
         child: Text(
           text,
           style: const TextStyle(
+            letterSpacing: 1,
             fontSize: 20,
             fontWeight: FontWeight.w900,
-            fontFamily: 'Rubrik',
+            fontFamily: AppFont.rubrikBold,
+            color: AppColors.greyGradient,
           ),
         ),
       ),

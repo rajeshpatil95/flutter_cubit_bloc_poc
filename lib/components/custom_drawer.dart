@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cubit_bloc_poc/style/font.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -61,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Rubrik',
+                          fontFamily: AppFont.rubrikMedium,
                         ),
                       ),
                       onTap: () {},
@@ -75,7 +76,7 @@ class CustomDrawer extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Rubrik',
+                          fontFamily: AppFont.rubrikMedium,
                         ),
                       ),
                       onTap: () {},
@@ -89,7 +90,7 @@ class CustomDrawer extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Rubrik',
+                          fontFamily: AppFont.rubrikMedium,
                         ),
                       ),
                       onTap: () {},
@@ -103,7 +104,7 @@ class CustomDrawer extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Rubrik',
+                          fontFamily: AppFont.rubrikMedium,
                         ),
                       ),
                       onTap: () {},
@@ -117,7 +118,7 @@ class CustomDrawer extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Rubrik',
+                          fontFamily: AppFont.rubrikMedium,
                         ),
                       ),
                       onTap: () {},
