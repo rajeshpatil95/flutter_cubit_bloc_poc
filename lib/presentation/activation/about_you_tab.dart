@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cubit_bloc_poc/components/secondary_button.dart';
 import 'package:flutter_cubit_bloc_poc/style/spacing.dart';
 import 'package:flutter_cubit_bloc_poc/utils/date_picker.dart';
 
 import '../../components/dropdown_menu.dart';
-import '../../components/primary_button.dart';
 import '../../style/app_colors.dart';
 import '../../style/font.dart';
 
 class AboutYouTab extends StatefulWidget {
   final Function? onPressed;
+
   const AboutYouTab({super.key, this.onPressed});
 
   @override
@@ -456,7 +457,7 @@ class _AboutYouTabState extends State<AboutYouTab> {
           AppSpacing.sizeBoxHt20,
           _bankingInfoWidget(),
           AppSpacing.sizeBoxHt30,
-          PrimaryButton(
+          SecondaryButton(
             text: 'Continue',
             onPressed: () {
               widget.onPressed!(true);

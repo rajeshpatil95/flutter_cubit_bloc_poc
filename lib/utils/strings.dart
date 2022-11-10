@@ -10,3 +10,4 @@ const LANDING_ROUTE = "/landing_page";
 const CALL_PLAN_ROUTE = "/call_plan_screen";
 const PRODUCT_DETAIL_ROUTE = "/product_detail_screen";
 const SCHEDULE_SLOT_ROUTE = "/schedule_slot_screen";
+const PAY_DEPOSIT_ROUTE = "/pay_deposit_screen";

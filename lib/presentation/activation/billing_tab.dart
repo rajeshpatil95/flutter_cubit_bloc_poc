@@ -1,6 +1,6 @@
 import 'package:custom_check_box/custom_check_box.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cubit_bloc_poc/components/primary_button.dart';
+import 'package:flutter_cubit_bloc_poc/components/secondary_button.dart';
 import 'package:flutter_cubit_bloc_poc/style/app_colors.dart';
 import 'package:flutter_cubit_bloc_poc/style/font.dart';
 
@@ -8,6 +8,7 @@ import '../../components/title_textfield.dart';
 
 class BillingTab extends StatefulWidget {
   final Function? onPressed;
+
   const BillingTab({super.key, this.onPressed});
 
   @override
@@ -150,7 +151,7 @@ class _BillingTabState extends State<BillingTab> {
               const SizedBox(
                 height: 33,
               ),
-              PrimaryButton(
+              SecondaryButton(
                 text: 'Continue',
                 onPressed: () {
                   widget.onPressed!(true);

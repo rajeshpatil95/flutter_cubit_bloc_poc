@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit_bloc_poc/presentation/activation/pay_deposit_screen.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/home/call_plan_screen.dart';
 
 import '../di/di_initializer.dart';
@@ -55,6 +56,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ProductDetailScreen());
       case SCHEDULE_SLOT_ROUTE:
         return MaterialPageRoute(builder: (_) => const ScheduleSlotScreen());
+      case PAY_DEPOSIT_ROUTE:
+        return MaterialPageRoute(builder: (_) => const PayDepositScreen());
       default:
         return null;
     }

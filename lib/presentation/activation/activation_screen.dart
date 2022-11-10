@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cubit_bloc_poc/components/secondary_button.dart';
 import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
 
 import '../../components/primary_button.dart';
@@ -17,6 +18,7 @@ class ActivationScreen extends StatefulWidget {
 
 class _ActivationScreenState extends State<ActivationScreen> {
   late bool _switchValue;
+
   @override
   void initState() {
     super.initState();
@@ -122,7 +124,7 @@ class _ActivationScreenState extends State<ActivationScreen> {
             ],
           ),
           const Spacer(),
-          PrimaryButton(
+          SecondaryButton(
             text: 'Continue',
             onPressed: () {
               Navigator.pushNamed(context, ACTIVATION_PROCESS_ROUTE);
