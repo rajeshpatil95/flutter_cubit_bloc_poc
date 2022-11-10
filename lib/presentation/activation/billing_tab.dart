@@ -1,5 +1,4 @@
 import 'package:custom_check_box/custom_check_box.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit_bloc_poc/components/primary_button.dart';
 import 'package:flutter_cubit_bloc_poc/style/app_colors.dart';

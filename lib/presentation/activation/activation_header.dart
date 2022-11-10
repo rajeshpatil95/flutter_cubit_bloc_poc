@@ -34,71 +34,71 @@ class ActivationHeader extends SliverPersistentHeaderDelegate {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      onPressed!(ActivationTabs.aboutYou);
-                    },
-                    icon: const Icon(
+              GestureDetector(
+                onTap: () {
+                  onPressed!(ActivationTabs.aboutYou);
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    Icon(
                       Icons.account_box_outlined,
                       color: AppColors.white,
                     ),
-                  ),
-                  AppSpacing.sizeBoxHt5,
-                  const Text('About you',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: AppFontSize.size14,
-                          color: AppColors.white)),
-                ],
+                    AppSpacing.sizeBoxHt5,
+                    Text('About you',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: AppFontSize.size14,
+                            color: AppColors.white)),
+                  ],
+                ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      onPressed!(ActivationTabs.billing);
-                    },
-                    icon: const Icon(
+              GestureDetector(
+                onTap: () {
+                  onPressed!(ActivationTabs.billing);
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    Icon(
                       Icons.save,
                       color: AppColors.white,
                     ),
-                  ),
-                  AppSpacing.sizeBoxHt5,
-                  const Text('Billing',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: AppFontSize.size14,
-                          color: AppColors.white)),
-                ],
+                    AppSpacing.sizeBoxHt5,
+                    Text('Billing',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: AppFontSize.size14,
+                            color: AppColors.white)),
+                  ],
+                ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      onPressed!(ActivationTabs.review);
-                    },
-                    icon: const Icon(
+              GestureDetector(
+                onTap: () {
+                  onPressed!(ActivationTabs.review);
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    Icon(
                       Icons.chat_outlined,
                       color: AppColors.white,
                     ),
-                  ),
-                  AppSpacing.sizeBoxHt5,
-                  const Text('Review',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: AppFontSize.size14,
-                          color: AppColors.white)),
-                ],
+                    AppSpacing.sizeBoxHt5,
+                    Text('Review',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: AppFontSize.size14,
+                            color: AppColors.white)),
+                  ],
+                ),
               ),
             ],
           )),
