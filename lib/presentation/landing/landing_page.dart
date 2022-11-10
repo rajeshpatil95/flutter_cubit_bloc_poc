@@ -125,7 +125,15 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                   ),
                   const SizedBox(height: 12.5),
-                  const FittedBox(child: DropDownMenu()),
+                  const FittedBox(
+                      child: Padding(
+                    padding: EdgeInsets.only(left: 21, right: 20),
+                    child: DropDownMenu(
+                      width: 360,
+                      height: 60,
+                      radiusBorder: 16,
+                    ),
+                  )),
                   const SizedBox(height: 19),
                   Padding(
                     padding: const EdgeInsets.only(

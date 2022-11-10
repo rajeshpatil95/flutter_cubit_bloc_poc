@@ -330,7 +330,12 @@ class _AboutYouTabState extends State<AboutYouTab> {
                 fontSize: AppFontSize.size18,
                 color: AppColors.black)),
         AppSpacing.sizeBoxHt10,
-        const FittedBox(child: DropDownMenu()),
+        const FittedBox(
+            child: DropDownMenu(
+          width: 380,
+          height: 65,
+          radiusBorder: 8,
+        )),
       ],
     );
   }
@@ -346,7 +351,12 @@ class _AboutYouTabState extends State<AboutYouTab> {
                 fontSize: AppFontSize.size18,
                 color: AppColors.black)),
         AppSpacing.sizeBoxHt10,
-        const FittedBox(child: DropDownMenu()),
+        const FittedBox(
+            child: DropDownMenu(
+          width: 380,
+          height: 65,
+          radiusBorder: 8,
+        )),
         AppSpacing.sizeBoxHt20,
         const Text('Date started current employment status',
             textAlign: TextAlign.start,

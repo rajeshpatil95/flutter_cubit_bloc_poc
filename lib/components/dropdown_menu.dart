@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class DropDownMenu extends StatefulWidget {
-  const DropDownMenu({Key? key}) : super(key: key);
+  final double? radiusBorder;
+  final double? height;
+  final double? width;
+  const DropDownMenu({Key? key, this.height, this.width, this.radiusBorder})
+      : super(key: key);
 
   @override
   State<DropDownMenu> createState() => _DropDownMenuState();
@@ -20,56 +24,47 @@ class _DropDownMenuState extends State<DropDownMenu> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: 21,
-        right: 20,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 360,
-                height: 60,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16.0),
-                  border: Border.all(
-                      color: Colors.grey,
-                      style: BorderStyle.solid,
-                      width: 0.80),
-                ),
-                child: DropdownButtonHideUnderline(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: DropdownButton(
-                      style: const TextStyle(
-                        color: Colors.black,
-                      ),
-                      isExpanded: true,
-                      iconSize: 40,
-                      elevation: 0,
-                      value: dropdownvalue,
-                      icon: const Icon(Icons.keyboard_arrow_up),
-                      items: items.map((String items) {
-                        return DropdownMenuItem(
-                            value: items, child: Text(items));
-                      }).toList(),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownvalue = newValue!;
-                        });
-                      },
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              width: widget.width!,
+              height: widget.height!,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(widget.radiusBorder!),
+                border: Border.all(
+                    color: Colors.grey, style: BorderStyle.solid, width: 0.80),
+              ),
+              child: DropdownButtonHideUnderline(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: DropdownButton(
+                    style: const TextStyle(
+                      color: Colors.black,
                     ),
+                    isExpanded: true,
+                    iconSize: 40,
+                    elevation: 0,
+                    value: dropdownvalue,
+                    icon: const Icon(Icons.keyboard_arrow_up),
+                    items: items.map((String items) {
+                      return DropdownMenuItem(value: items, child: Text(items));
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        dropdownvalue = newValue!;
+                      });
+                    },
                   ),
                 ),
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
