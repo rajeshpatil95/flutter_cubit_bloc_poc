@@ -13,6 +13,8 @@ class AppFont {
   static String roboto = 'Roboto';
   static const String circularStd = 'CircularStd';
   static const String rubrik = 'Rubrik';
+  static const String rubrikBold = 'Rubrik Bold';
+  static const String rubrikMedium = 'Rubrik Medium';
 }
 
 class AppFontWeight {
