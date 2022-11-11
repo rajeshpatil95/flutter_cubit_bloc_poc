@@ -70,10 +70,10 @@ class _LandingPageState extends State<LandingPage> {
               '${geographicSubAddress.buildingName!} ${geographicSubAddress.subBuilding!} ${geographicSubAddress.subLocality!}, ${geographicSubAddress.subStreet!}';
           dropDownItems.removeWhere((item) => item != 'Pick your address');
           setState(() {
-            dropDownItems.add(address);
-            dropDownItems.add(address);
-            dropDownItems.add(address);
-            dropDownItems.add(address);
+            dropDownItems.add(address + ' A');
+            dropDownItems.add(address + ' B');
+            dropDownItems.add(address + ' C');
+            dropDownItems.add(address + ' D');
           });
         }
         if (state is AddressFailure) {
@@ -168,12 +168,14 @@ class _LandingPageState extends State<LandingPage> {
                                   ),
                                   filled: true,
                                   hintStyle: const TextStyle(
-                                      color: AppColors.greyGradient),
-                                  hintText: 'SE3 7PQ',
+                                      color: AppColors.greyWhite),
+                                  hintText: 'Hint: SE3 7PQ',
                                   fillColor: Colors.white),
                               onEditingComplete: () {
-                                BlocProvider.of<AddressCubit>(context)
-                                    .fetchAddress();
+                                if (textPasscodeController.text.isNotEmpty) {
+                                  BlocProvider.of<AddressCubit>(context)
+                                      .fetchAddress();
+                                }
                                 FocusScope.of(context).unfocus();
                               },
                             ),
