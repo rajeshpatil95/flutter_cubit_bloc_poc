@@ -1,45 +1,4 @@
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_cubit_bloc_poc/navigation/router.dart';
-
-import 'appStateContainer/app_state_container.dart';
-import 'di/di_initializer.dart';
-
-void main() {
-  FlutterError.onError = (FlutterErrorDetails details) async {
-    if (kDebugMode) {
-      FlutterError.dumpErrorToConsole(details);
-    } else {
-      Zone.current.handleUncaughtError(details.exception, details.stack!);
-    }
-  };
-
-  runZonedGuarded<Future<void>>(() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    DI.initializeDependencies();
-    runApp(AppStateContainer(
-        child: BBAquisitionApp(
-      router: AppRouter(),
-    )));
-  }, (Object error, StackTrace stackTrace) async {});
-}
-
-class BBAquisitionApp extends StatelessWidget {
-  final AppRouter? router;
-
-  const BBAquisitionApp({Key? key, this.router}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      onGenerateRoute: router!.generateRoute,
-    );
-  }
-}
+// main.dart should not be used, use either main_dev.dart or main_prod.dart which invokes main_default.dart
+//flutter run -d 86S7N18426004686 --flavor Dev -t lib/main/main_dev.dart -- To run dev version
+//flutter build apk --release --flavor dev -t lib/main/main_dev.dart     -- To build dev release apk
+//flutter build appbundle --flavor production -t lib/main/main_prod.dart -- To build prod release apk

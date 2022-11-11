@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import '../flavour/flavour_variables.dart';
 import '../utils/mock_server.dart';
 
 abstract class BaseRequest with MockServer {
@@ -68,8 +69,8 @@ abstract class BaseRequest with MockServer {
   }
 
   Future<String> getBaseUrl() async {
-    // return getFlavourVariable(FlavourVariable.baseUrl);
-    return 'https://wiremock-1535-review-master-wir-bohmwi.dsp-test.bt.com';
+    return getFlavourVariable(FlavourVariable.baseUrl);
+    // return 'https://wiremock-1535-review-master-wir-bohmwi.dsp-test.bt.com';
   }
 }
 
