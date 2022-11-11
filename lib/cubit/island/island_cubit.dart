@@ -6,13 +6,13 @@ import '../../models/island.dart';
 import '../../services/island/repository.dart';
 part 'island_state.dart';
 
-class TodosCubit extends Cubit<TodosState> {
+class IslandCubit extends Cubit<IslandState> {
   final IslandRepository? repository;
 
-  TodosCubit({this.repository}) : super(TodosInitial());
+  IslandCubit({this.repository}) : super(IslandInitial());
 
-  void fetchTodos() async {
+  void fetchIsland() async {
     List<IslandModel>? islandList = await repository?.fetchIslands();
-    emit(TodosLoaded(todos: islandList as List<IslandModel>));
+    emit(IslandLoaded(Island: islandList as List<IslandModel>));
   }
 }

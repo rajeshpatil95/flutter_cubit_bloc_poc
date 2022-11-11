@@ -4,7 +4,15 @@ class DropDownMenu extends StatefulWidget {
   final double? radiusBorder;
   final double? height;
   final double? width;
-  const DropDownMenu({Key? key, this.height, this.width, this.radiusBorder})
+  final List<String>? dropDownItems;
+  final Function? onSelected;
+  const DropDownMenu(
+      {Key? key,
+      this.height,
+      this.width,
+      this.radiusBorder,
+      this.dropDownItems,
+      this.onSelected})
       : super(key: key);
 
   @override
@@ -12,15 +20,13 @@ class DropDownMenu extends StatefulWidget {
 }
 
 class _DropDownMenuState extends State<DropDownMenu> {
-  String dropdownvalue = '1 Puddle Lane, London';
+  late String dropdownvalue;
 
-  var items = [
-    '1 Puddle Lane, London',
-    '2 Puddle Lane, London',
-    '3 Puddle Lane, London',
-    '4 Puddle Lane, London',
-    '5 Puddle Lane, London',
-  ];
+  @override
+  void initState() {
+    super.initState();
+    dropdownvalue = widget.dropDownItems!.first;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +56,13 @@ class _DropDownMenuState extends State<DropDownMenu> {
                     elevation: 0,
                     value: dropdownvalue,
                     icon: const Icon(Icons.keyboard_arrow_up),
-                    items: items.map((String items) {
+                    items: widget.dropDownItems!.map((String items) {
                       return DropdownMenuItem(value: items, child: Text(items));
                     }).toList(),
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownvalue = newValue!;
+                        widget.onSelected!(dropdownvalue);
                       });
                     },
                   ),

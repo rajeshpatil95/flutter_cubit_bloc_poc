@@ -1,12 +1,12 @@
 import '../../models/island.dart';
-import 'network_service.dart';
+import 'request.dart';
 
 abstract class IslandRepository {
   Future<List<IslandModel>> fetchIslands();
 }
 
 class IslandRepositoryImpl implements IslandRepository {
-  NetworkService? networkService = NetworkService();
+  IslandRequest? networkService = IslandRequest();
 
   @override
   Future<List<IslandModel>> fetchIslands() async {
