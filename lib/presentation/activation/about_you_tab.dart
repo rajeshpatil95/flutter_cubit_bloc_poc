@@ -21,6 +21,12 @@ class _AboutYouTabState extends State<AboutYouTab> {
   TextEditingController _empStartController = TextEditingController();
   TextEditingController _bankStartController = TextEditingController();
   int _isBestNumber = 0, _confirmPlace = 0;
+  List<String> dropDownItems = [
+    'Pick your item_1',
+    'Pick your item_2',
+    'Pick your item_3',
+    'Pick your item_4'
+  ];
 
   Widget _personalInfoWidget() {
     return Column(
@@ -331,11 +337,12 @@ class _AboutYouTabState extends State<AboutYouTab> {
                 fontSize: AppFontSize.size18,
                 color: AppColors.black)),
         AppSpacing.sizeBoxHt10,
-        const FittedBox(
+        FittedBox(
             child: DropDownMenu(
           width: 380,
           height: 65,
           radiusBorder: 8,
+          dropDownItems: dropDownItems,
         )),
       ],
     );
@@ -352,11 +359,12 @@ class _AboutYouTabState extends State<AboutYouTab> {
                 fontSize: AppFontSize.size18,
                 color: AppColors.black)),
         AppSpacing.sizeBoxHt10,
-        const FittedBox(
+        FittedBox(
             child: DropDownMenu(
           width: 380,
           height: 65,
           radiusBorder: 8,
+          dropDownItems: dropDownItems,
         )),
         AppSpacing.sizeBoxHt20,
         const Text('Date started current employment status',
