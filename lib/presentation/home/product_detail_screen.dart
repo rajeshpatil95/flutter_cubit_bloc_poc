@@ -39,29 +39,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         ),
         iconTheme:
             IconTheme.of(context).copyWith(color: "#FFFFFF".hexToColor()),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              //desired action command
-            },
-            child: Container(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.asset('assets/images/user.png'),
-              ),
-            ),
-          ),
-        ],
         flexibleSpace: Container(
           decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(24),
-                  bottomRight: Radius.circular(24)),
-              gradient: LinearGradient(
-                  colors: ["#007B85".hexToColor(), "#007B85".hexToColor()],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter)),
+            borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(24),
+                bottomRight: Radius.circular(24)),
+            color: "#007B85".hexToColor(),
+          ),
         ),
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
@@ -70,8 +54,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
+            Container(
+              margin: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,11 +68,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       fontSize: 22,
                     ),
                   ),
+                  const SizedBox(height: 20.0),
                   Image.asset('assets/images/product1.png'),
+                  const SizedBox(height: 20.0),
                   DefaultTabController(
                     length: 2,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         TabBar(
                           tabs: const [
@@ -97,12 +84,16 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           ],
                           labelStyle: const TextStyle(
                             fontSize: 20.0,
+                            height: 1.8,
                             fontWeight: FontWeight.bold,
                           ),
                           indicatorSize: TabBarIndicatorSize.label,
                           indicatorColor: "#007B85".hexToColor(),
+                          indicatorWeight: 0.5,
                           labelColor: "#007B85".hexToColor(),
                           unselectedLabelColor: "#6D6E71".hexToColor(),
+                          padding: EdgeInsets.zero,
+                          labelPadding: EdgeInsets.zero,
                         ),
                         Container(
                           margin: const EdgeInsets.only(top: 20.0),
@@ -112,6 +103,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               Text(
                                 detailVM.description,
                                 style: TextStyle(
+                                  height: 1.7,
                                   color: "#6D6E71".hexToColor(),
                                   fontSize: 14,
                                 ),
@@ -121,6 +113,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 style: TextStyle(
                                   color: "#6D6E71".hexToColor(),
                                   fontSize: 14,
+                                  height: 1.7,
                                 ),
                               ),
                             ],
@@ -132,7 +125,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   Card(
                     elevation: 8.0,
                     margin: const EdgeInsets.only(
-                      top: 20.0,
+                      top: 30.0,
                       bottom: 20.0,
                     ),
                     color: "#3C3D41".hexToColor(),
@@ -157,6 +150,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             "Upfront costs",
                             style: TextStyle(
                               fontSize: 20.0,
+                              height: 1.2,
                               fontWeight: FontWeight.bold,
                               color: "#FFFFFF".hexToColor(),
                             ),
@@ -165,6 +159,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             "These will be added to your first monthly bill.",
                             style: TextStyle(
                               fontSize: 14.0,
+                              height: 1.4,
                               color: "#FFFFFF".hexToColor(),
                             ),
                           ),
@@ -215,51 +210,55 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: detailVM.otherPlans.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 15.0,
-                      horizontal: 10.0,
-                    ),
-                    elevation: 0.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      // if you need this
-                      side: BorderSide(
-                        color: "#6D6E71".hexToColor(),
-                        width: 1,
+                  return Container(
+                    width: MediaQuery.of(context).size.width / 1.6,
+                    margin: EdgeInsets.only(left: index == 0 ? 20.0 : 10.0),
+                    child: Card(
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 15.0,
+                        horizontal: 10.0,
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Image.asset(
-                            detailVM.otherPlans[index].productImg,
-                            height: 160,
-                          ),
-                          Text(
-                            detailVM.otherPlans[index].title,
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              height: 1.8,
-                              fontWeight: FontWeight.w500,
-                              color: "#6D6E71".hexToColor(),
+                      elevation: 0.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        // if you need this
+                        side: BorderSide(
+                          color: "#6D6E71".hexToColor(),
+                          width: 1,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Image.asset(
+                              detailVM.otherPlans[index].productImg,
+                              height: 160,
                             ),
-                          ),
-                          Text(
-                            detailVM.otherPlans[index].description,
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              height: 1.2,
-                              color: "#6D6E71".hexToColor(),
-                              fontWeight: FontWeight.w500,
+                            Text(
+                              detailVM.otherPlans[index].title,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                height: 1.8,
+                                fontWeight: FontWeight.w500,
+                                color: "#6D6E71".hexToColor(),
+                              ),
                             ),
-                            softWrap: true,
-                            maxLines: 2,
-                            textAlign: TextAlign.center,
-                          )
-                        ],
+                            Text(
+                              detailVM.otherPlans[index].description,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                height: 1.2,
+                                color: "#6D6E71".hexToColor(),
+                                fontWeight: FontWeight.w500,
+                              ),
+                              softWrap: true,
+                              maxLines: 2,
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   );
@@ -282,10 +281,5 @@ class ProductDetailVM {
   List<ProductDetailVM> otherPlans = [];
 
   ProductDetailVM(
-    this.id,
-    this.title,
-    this.description,
-    this.productImg,
-    this.otherPlans,
-  );
+      this.id, this.title, this.description, this.productImg, this.otherPlans);
 }
