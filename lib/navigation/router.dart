@@ -7,6 +7,7 @@ import '../cubit/address/address_cubit.dart';
 import '../di/di_initializer.dart';
 import '../presentation/activation/activation_process_screen.dart';
 import '../presentation/activation/activation_screen.dart';
+import '../presentation/activation/deposit_success_screen.dart';
 import '../presentation/home/discover_plans_screen.dart';
 import '../presentation/home/home_screen.dart';
 import '../presentation/home/product_detail_screen.dart';
@@ -67,6 +68,9 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ScheduleSlotScreen());
       case PAY_DEPOSIT_ROUTE:
         return MaterialPageRoute(builder: (_) => const PayDepositScreen());
+      case DEPOSIT_SUCCESS_ROUTE:
+        return MaterialPageRoute(
+            builder: (_) => const DepositSuccessfulScreen());
       default:
         return null;
     }

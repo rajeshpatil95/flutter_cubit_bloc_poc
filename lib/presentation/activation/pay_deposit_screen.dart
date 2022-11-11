@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/home/call_plan_screen.dart';
+import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
 
 class PayDepositScreen extends StatefulWidget {
   const PayDepositScreen({Key? key}) : super(key: key);
@@ -332,6 +333,7 @@ class _PayDepositScreenState extends State<PayDepositScreen> {
                           ),
                       onPressed: () {
                         // TODO: move to next screen
+                        Navigator.pushNamed(context, DEPOSIT_SUCCESS_ROUTE);
                       },
                       child: Text(
                         "Continue",
