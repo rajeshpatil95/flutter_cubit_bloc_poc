@@ -20,16 +20,16 @@ void main() {
     WidgetsFlutterBinding.ensureInitialized();
     DI.initializeDependencies();
     runApp(AppStateContainer(
-        child: IslandApp(
+        child: BBAquisitionApp(
       router: AppRouter(),
     )));
   }, (Object error, StackTrace stackTrace) async {});
 }
 
-class IslandApp extends StatelessWidget {
+class BBAquisitionApp extends StatelessWidget {
   final AppRouter? router;
 
-  const IslandApp({Key? key, this.router}) : super(key: key);
+  const BBAquisitionApp({Key? key, this.router}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

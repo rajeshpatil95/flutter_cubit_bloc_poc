@@ -5,17 +5,17 @@ import '../../utils/strings.dart';
 import '../../cubit/island/island_cubit.dart';
 import '../../models/island.dart';
 
-class TodosScreen extends StatefulWidget {
+class IslandScreen extends StatefulWidget {
   @override
-  State<TodosScreen> createState() => _TodosScreenState();
+  State<IslandScreen> createState() => _IslandScreenState();
 }
 
-class _TodosScreenState extends State<TodosScreen> {
+class _IslandScreenState extends State<IslandScreen> {
   @override
   void initState() {
     super.initState();
 
-    BlocProvider.of<TodosCubit>(context).fetchTodos();
+    BlocProvider.of<IslandCubit>(context).fetchIsland();
   }
 
   @override
@@ -35,16 +35,16 @@ class _TodosScreenState extends State<TodosScreen> {
             )
           ],
         ),
-        body: BlocBuilder<TodosCubit, TodosState>(
+        body: BlocBuilder<IslandCubit, IslandState>(
           builder: (context, state) {
-            if (!(state is TodosLoaded))
+            if (!(state is IslandLoaded))
               return Center(child: CircularProgressIndicator());
 
-            final todos = (state as TodosLoaded).todos;
+            final Island = (state as IslandLoaded).Island;
 
             return SingleChildScrollView(
               child: Column(
-                children: todos!.map((e) => _todo(e, context)).toList(),
+                children: Island!.map((e) => _todo(e, context)).toList(),
               ),
             );
           },

@@ -1,12 +1,12 @@
 part of 'island_cubit.dart';
 
 @immutable
-abstract class TodosState {}
+abstract class IslandState {}
 
-class TodosInitial extends TodosState {}
+class IslandInitial extends IslandState {}
 
-class TodosLoaded extends TodosState {
-  final List<IslandModel>? todos;
+class IslandLoaded extends IslandState {
+  final List<IslandModel>? Island;
 
-  TodosLoaded({this.todos});
+  IslandLoaded({this.Island});
 }
