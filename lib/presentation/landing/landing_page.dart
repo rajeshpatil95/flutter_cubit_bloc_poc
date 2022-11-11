@@ -22,6 +22,7 @@ class _LandingPageState extends State<LandingPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController textPasscodeController = TextEditingController();
   List<String> dropDownItems = ['Pick your address'];
+  String addressSelected = 'Pick your address';
 
   void showInSnackBar(String value) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -209,6 +210,11 @@ class _LandingPageState extends State<LandingPage> {
                           height: 60,
                           radiusBorder: 16,
                           dropDownItems: dropDownItems,
+                          onSelected: (value) {
+                            setState(() {
+                              addressSelected = value;
+                            });
+                          },
                         ),
                       )),
                       const SizedBox(height: 19),
@@ -275,7 +281,13 @@ class _LandingPageState extends State<LandingPage> {
                         child: PrimaryButton(
                           text: 'Discover what you can get',
                           onPressed: () {
-                            Navigator.pushNamed(context, HOME_ROUTE);
+                            if (textPasscodeController.text.isNotEmpty &&
+                                (addressSelected != 'Pick your address')) {
+                              Navigator.pushNamed(context, HOME_ROUTE);
+                            } else {
+                              showInSnackBar(
+                                  'Please check for valid postcode or address');
+                            }
                           },
                         ),
                       ),

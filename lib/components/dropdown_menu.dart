@@ -5,12 +5,14 @@ class DropDownMenu extends StatefulWidget {
   final double? height;
   final double? width;
   final List<String>? dropDownItems;
+  final Function? onSelected;
   const DropDownMenu(
       {Key? key,
       this.height,
       this.width,
       this.radiusBorder,
-      this.dropDownItems})
+      this.dropDownItems,
+      this.onSelected})
       : super(key: key);
 
   @override
@@ -60,6 +62,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownvalue = newValue!;
+                        widget.onSelected!(dropdownvalue);
                       });
                     },
                   ),
