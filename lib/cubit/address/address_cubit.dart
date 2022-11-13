@@ -12,8 +12,12 @@ class AddressCubit extends Cubit<AddressState> {
   AddressCubit({this.repository}) : super(AddressInitial());
 
   void fetchAddress() async {
-    emit(AddressLoading());
-    List<AddressModel>? addressList = await repository?.fetchAddress();
-    emit(AddressLoaded(addressList: addressList as List<AddressModel>));
+    try {
+      emit(AddressLoading());
+      List<AddressModel>? addressList = await repository?.fetchAddress();
+      emit(AddressLoaded(addressList: addressList as List<AddressModel>));
+    } catch (e) {
+      emit(AddressFailure());
+    }
   }
 }
