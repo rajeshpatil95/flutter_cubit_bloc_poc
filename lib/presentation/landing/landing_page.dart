@@ -78,7 +78,8 @@ class _LandingPageState extends State<LandingPage> {
           });
         }
         if (state is AddressFailure) {
-          showInSnackBar('Something wnet wrong, please try again later');
+          Navigator.of(context).pop();
+          showInSnackBar('Something went wrong, please try again later');
         }
       },
       buildWhen: (previous, current) => true,
