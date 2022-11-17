@@ -3,7 +3,7 @@ import 'package:flutter_cubit_bloc_poc/utils/extensions.dart';
 
 import '../../utils/mock_server.dart';
 import '../../models/island.dart';
-import '../../utils/test_response.dart';
+import '../../resources/test_response.dart';
 import '../base_request.dart';
 
 class IslandRequest with MockServer {

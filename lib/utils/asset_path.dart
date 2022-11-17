@@ -1,4 +1,4 @@
-class ImageAsset {
+class AssetPath {
   static get(String fileName) => _imagesPath + fileName;
 
   static const String _imagesPath = "assets/images/";
@@ -13,5 +13,5 @@ class ImageAsset {
   static const String almostThereSelected = _lottiePath + 'selected.json';
 
   @override
-  String toString() => "Get Image and Svg Path from ImageAsset";
+  String toString() => "All asset path to eb availed here";
 }
