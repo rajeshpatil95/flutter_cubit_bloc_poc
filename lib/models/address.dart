@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'address.g.dart';
+
+@JsonSerializable()
 class AddressModel {
   SiteReference? siteReference;
   String? id;
@@ -42,168 +47,63 @@ class AddressModel {
       this.geographicLocationRefOrValue,
       this.geographicSubAddress});
 
-  AddressModel.fromJson(Map<String, dynamic> json) {
-    siteReference = json['siteReference'] != null
-        ? SiteReference.fromJson(json['siteReference'])
-        : null;
-    id = json['id'];
-    uprn = json['uprn'];
-    parentUPRN = json['parentUPRN'];
-    addressSource = json['addressSource'];
-    exchangeGroupCode = json['exchangeGroupCode'];
-    districtCode = json['districtCode'];
-    qualifier = json['qualifier'];
-    streetNr = json['streetNr'];
-    streetName = json['streetName'];
-    postcode = json['postcode'];
-    locality = json['locality'];
-    city = json['city'];
-    country = json['country'];
-    poBox = json['poBox'];
-    postalOrganisation = json['postalOrganisation'];
-    county = json['county'];
-    type = json['@type'];
-    geographicLocationRefOrValue = json['geographicLocationRefOrValue'] != null
-        ? GeographicLocationRefOrValue.fromJson(
-            json['geographicLocationRefOrValue'])
-        : null;
-    if (json['geographicSubAddress'] != null) {
-      geographicSubAddress = <GeographicSubAddress>[];
-      json['geographicSubAddress'].forEach((v) {
-        geographicSubAddress!.add(GeographicSubAddress.fromJson(v));
-      });
-    }
-  }
+  factory AddressModel.fromJson(Map<String, dynamic> json) =>
+      _$AddressModelFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.siteReference != null) {
-      data['siteReference'] = this.siteReference!.toJson();
-    }
-    data['id'] = this.id;
-    data['uprn'] = this.uprn;
-    data['parentUPRN'] = this.parentUPRN;
-    data['addressSource'] = this.addressSource;
-    data['exchangeGroupCode'] = this.exchangeGroupCode;
-    data['districtCode'] = this.districtCode;
-    data['qualifier'] = this.qualifier;
-    data['streetNr'] = this.streetNr;
-    data['streetName'] = this.streetName;
-    data['postcode'] = this.postcode;
-    data['locality'] = this.locality;
-    data['city'] = this.city;
-    data['country'] = this.country;
-    data['poBox'] = this.poBox;
-    data['postalOrganisation'] = this.postalOrganisation;
-    data['county'] = this.county;
-    data['@type'] = this.type;
-    if (this.geographicLocationRefOrValue != null) {
-      data['geographicLocationRefOrValue'] =
-          this.geographicLocationRefOrValue!.toJson();
-    }
-    if (this.geographicSubAddress != null) {
-      data['geographicSubAddress'] =
-          this.geographicSubAddress!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$AddressModelToJson(this);
 }
 
+@JsonSerializable()
 class SiteReference {
   ListOfTechnology? listOfTechnology;
   ListOfTechnologyRestriction? listOfTechnologyRestriction;
 
   SiteReference({this.listOfTechnology, this.listOfTechnologyRestriction});
 
-  SiteReference.fromJson(Map<String, dynamic> json) {
-    listOfTechnology = json['listOfTechnology'] != null
-        ? ListOfTechnology.fromJson(json['listOfTechnology'])
-        : null;
-    listOfTechnologyRestriction = json['listOfTechnologyRestriction'] != null
-        ? ListOfTechnologyRestriction.fromJson(
-            json['listOfTechnologyRestriction'])
-        : null;
-  }
+  factory SiteReference.fromJson(Map<String, dynamic> json) =>
+      _$SiteReferenceFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.listOfTechnology != null) {
-      data['listOfTechnology'] = this.listOfTechnology!.toJson();
-    }
-    if (this.listOfTechnologyRestriction != null) {
-      data['listOfTechnologyRestriction'] =
-          this.listOfTechnologyRestriction!.toJson();
-    }
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$SiteReferenceToJson(this);
 }
 
+@JsonSerializable()
 class ListOfTechnology {
   List<Technology>? technology;
 
   ListOfTechnology({this.technology});
 
-  ListOfTechnology.fromJson(Map<String, dynamic> json) {
-    if (json['technology'] != null) {
-      technology = <Technology>[];
-      json['technology'].forEach((v) {
-        technology!.add(Technology.fromJson(v));
-      });
-    }
-  }
+  factory ListOfTechnology.fromJson(Map<String, dynamic> json) =>
+      _$ListOfTechnologyFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.technology != null) {
-      data['technology'] = this.technology!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$ListOfTechnologyToJson(this);
 }
 
+@JsonSerializable()
 class Technology {
   String? technologyName;
   String? technologyValue;
 
   Technology({this.technologyName, this.technologyValue});
 
-  Technology.fromJson(Map<String, dynamic> json) {
-    technologyName = json['technologyName'];
-    technologyValue = json['technologyValue'];
-  }
+  factory Technology.fromJson(Map<String, dynamic> json) =>
+      _$TechnologyFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['technologyName'] = this.technologyName;
-    data['technologyValue'] = this.technologyValue;
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$TechnologyToJson(this);
 }
 
+@JsonSerializable()
 class ListOfTechnologyRestriction {
   List<TechnologyRestriction>? technologyRestriction;
 
   ListOfTechnologyRestriction({this.technologyRestriction});
 
-  ListOfTechnologyRestriction.fromJson(Map<String, dynamic> json) {
-    if (json['technologyRestriction'] != null) {
-      technologyRestriction = <TechnologyRestriction>[];
-      json['technologyRestriction'].forEach((v) {
-        technologyRestriction!.add(TechnologyRestriction.fromJson(v));
-      });
-    }
-  }
+  factory ListOfTechnologyRestriction.fromJson(Map<String, dynamic> json) =>
+      _$ListOfTechnologyRestrictionFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.technologyRestriction != null) {
-      data['technologyRestriction'] =
-          this.technologyRestriction!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$ListOfTechnologyRestrictionToJson(this);
 }
 
+@JsonSerializable()
 class TechnologyRestriction {
   String? technologyRestrictionName;
   String? technologyRestrictionValue;
@@ -211,53 +111,35 @@ class TechnologyRestriction {
   TechnologyRestriction(
       {this.technologyRestrictionName, this.technologyRestrictionValue});
 
-  TechnologyRestriction.fromJson(Map<String, dynamic> json) {
-    technologyRestrictionName = json['technologyRestrictionName'];
-    technologyRestrictionValue = json['technologyRestrictionValue'];
-  }
+  factory TechnologyRestriction.fromJson(Map<String, dynamic> json) =>
+      _$TechnologyRestrictionFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['technologyRestrictionName'] = this.technologyRestrictionName;
-    data['technologyRestrictionValue'] = this.technologyRestrictionValue;
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$TechnologyRestrictionToJson(this);
 }
 
+@JsonSerializable()
 class GeographicLocationRefOrValue {
   List<Geometry>? geometry;
 
   GeographicLocationRefOrValue({this.geometry});
 
-  GeographicLocationRefOrValue.fromJson(Map<String, dynamic> json) {
-    if (json['geometry'] != null) {
-      geometry = <Geometry>[];
-      json['geometry'].forEach((v) {
-        geometry!.add(Geometry.fromJson(v));
-      });
-    }
-  }
+  factory GeographicLocationRefOrValue.fromJson(Map<String, dynamic> json) =>
+      _$GeographicLocationRefOrValueFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.geometry != null) {
-      data['geometry'] = this.geometry!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$GeographicLocationRefOrValueToJson(this);
 }
 
+@JsonSerializable()
 class Geometry {
   Geometry();
 
-  Geometry.fromJson(Map<String, dynamic> json) {}
+  factory Geometry.fromJson(Map<String, dynamic> json) =>
+      _$GeometryFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$GeometryToJson(this);
 }
 
+@JsonSerializable()
 class GeographicSubAddress {
   String? buildingName;
   String? subBuilding;
@@ -272,21 +154,8 @@ class GeographicSubAddress {
       this.subLocality,
       this.type});
 
-  GeographicSubAddress.fromJson(Map<String, dynamic> json) {
-    buildingName = json['buildingName'];
-    subBuilding = json['subBuilding'];
-    subStreet = json['subStreet'];
-    subLocality = json['subLocality'];
-    type = json['@type'];
-  }
+  factory GeographicSubAddress.fromJson(Map<String, dynamic> json) =>
+      _$GeographicSubAddressFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['buildingName'] = this.buildingName;
-    data['subBuilding'] = this.subBuilding;
-    data['subStreet'] = this.subStreet;
-    data['subLocality'] = this.subLocality;
-    data['@type'] = this.type;
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$GeographicSubAddressToJson(this);
 }
