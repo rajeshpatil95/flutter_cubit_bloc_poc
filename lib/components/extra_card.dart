@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../resources/images/asset_path.dart';
+import '../utils/asset_path.dart';
 import '../style/app_colors.dart';
 import '../style/font.dart';
 import '../style/spacing.dart';
@@ -29,7 +29,7 @@ class ExtraCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    ImageAsset.product,
+                    AssetPath.product,
                     height: 200,
                     width: 200,
                   ),
