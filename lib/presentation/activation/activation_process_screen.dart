@@ -3,7 +3,7 @@ import 'package:flutter_cubit_bloc_poc/presentation/activation/about_you_tab.dar
 import 'package:flutter_cubit_bloc_poc/presentation/activation/activation_header.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/activation/billing_tab.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/activation/review_tab.dart';
-import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
+import 'package:flutter_cubit_bloc_poc/navigation/route_constants.dart';
 
 import '../../style/app_colors.dart';
 import '../../style/font.dart';

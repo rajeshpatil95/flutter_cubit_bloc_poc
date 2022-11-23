@@ -6,10 +6,11 @@ import 'package:flutter_cubit_bloc_poc/components/custom_drawer.dart';
 import 'package:flutter_cubit_bloc_poc/components/primary_button.dart';
 import 'package:flutter_cubit_bloc_poc/style/app_colors.dart';
 import 'package:flutter_cubit_bloc_poc/style/font.dart';
-import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
+import 'package:flutter_cubit_bloc_poc/navigation/route_constants.dart';
 
 import '../../components/dropdown_menu.dart';
 import '../../cubit/address/address_cubit.dart';
+import '../../language/language_constants.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -106,14 +107,14 @@ class _LandingPageState extends State<LandingPage> {
                         ),
                       ),
                       const SizedBox(height: 43),
-                      const Padding(
-                        padding: EdgeInsets.only(
+                      Padding(
+                        padding: const EdgeInsets.only(
                           left: 32,
                           right: 31,
                         ),
                         child: Text(
-                          'BROADBAND THAT CAN HANDLE ANYTHING',
-                          style: TextStyle(
+                          translation(context).broadBandThatCanHandleAnything,
+                          style: const TextStyle(
                             color: Color(0xffF3F3F3),
                             fontSize: 38,
                           ),

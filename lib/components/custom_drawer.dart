@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cubit_bloc_poc/navigation/route_constants.dart';
 import 'package:flutter_cubit_bloc_poc/style/font.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -122,6 +123,22 @@ class CustomDrawer extends StatelessWidget {
                         ),
                       ),
                       onTap: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: ListTile(
+                      title: const Text(
+                        'Settings',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: AppFont.rubrikMedium,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, SETTINGS_ROUTE);
+                      },
                     ),
                   ),
                 ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/deposit/pay_deposit_screen.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/home/call_plan_screen.dart';
+import 'package:flutter_cubit_bloc_poc/presentation/landing/settings.dart';
 
 import '../cubit/address/address_cubit.dart';
 import '../cubit/island/island_cubit.dart';
@@ -15,7 +16,7 @@ import '../presentation/home/product_detail_screen.dart';
 import '../presentation/home/schedule_slot_screen.dart';
 import '../presentation/landing/landing_page.dart';
 import '../services/address/repository.dart';
-import '../utils/strings.dart';
+import 'route_constants.dart';
 import '../services/island/repository.dart';
 import '../presentation/island/add_island_screen.dart';
 import '../presentation/island/edit_island_screen.dart';
@@ -71,6 +72,8 @@ class AppRouter {
       case DEPOSIT_SUCCESS_ROUTE:
         return MaterialPageRoute(
             builder: (_) => const DepositSuccessfulScreen());
+      case SETTINGS_ROUTE:
+        return MaterialPageRoute(builder: (_) => const SettingsPage());
       default:
         return null;
     }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/home/call_plan_screen.dart';
-import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
+import 'package:flutter_cubit_bloc_poc/navigation/route_constants.dart';
 
 class PayDepositScreen extends StatefulWidget {
   const PayDepositScreen({Key? key}) : super(key: key);

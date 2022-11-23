@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cubit_bloc_poc/components/monthly_card.dart';
 import 'package:flutter_cubit_bloc_poc/presentation/home/search_header.dart';
 import 'package:flutter_cubit_bloc_poc/style/spacing.dart';
-import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
+import 'package:flutter_cubit_bloc_poc/navigation/route_constants.dart';
 
 import '../../components/extra_card.dart';
 import '../../components/plan_card.dart';
