@@ -12,3 +12,4 @@ const PRODUCT_DETAIL_ROUTE = "/product_detail_screen";
 const SCHEDULE_SLOT_ROUTE = "/schedule_slot_screen";
 const PAY_DEPOSIT_ROUTE = "/pay_deposit_screen";
 const DEPOSIT_SUCCESS_ROUTE = "/deposit_success_screen";
+const SETTINGS_ROUTE = "/settings_screen";

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../utils/strings.dart';
+import '../../navigation/route_constants.dart';
 import '../../cubit/island/island_cubit.dart';
 import '../../models/island.dart';
 

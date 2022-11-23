@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit_bloc_poc/components/secondary_button.dart';
-import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
+import 'package:flutter_cubit_bloc_poc/navigation/route_constants.dart';
 
 import '../../components/primary_button.dart';
 import '../../style/app_colors.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cubit_bloc_poc/utils/strings.dart';
+import 'package:flutter_cubit_bloc_poc/navigation/route_constants.dart';
 
 import '../../components/custom_button.dart';
 

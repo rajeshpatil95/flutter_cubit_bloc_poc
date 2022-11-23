@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum preferencesKeys { kIslandList, kIslandDetails }
+enum preferencesKeys { kIslandList, kIslandDetails, kLanguageCode }
 
 /// Key-Value storage that wraps SharedPreferences
 abstract class Preferences {
