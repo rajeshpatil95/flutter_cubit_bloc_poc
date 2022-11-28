@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cubit_bloc_poc/appStateContainer/app_state_container.dart';
 
+import '../multiTheme/theme_constants.dart';
 import '../language/language_constants.dart';
 import '../navigation/router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -38,9 +40,9 @@ class _BBAquisitionAppState extends State<BBAquisitionApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: AppStateContainer.of(context).themeMode,
       onGenerateRoute: widget.router!.generateRoute,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
