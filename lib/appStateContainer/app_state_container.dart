@@ -17,6 +17,15 @@ class AppStateContainer extends StatefulWidget {
 
 class AppStateContainerState extends State<AppStateContainer> {
   bool areDetailsUpdated = false;
+  ThemeMode _themeMode = ThemeMode.light;
+
+  get themeMode => _themeMode;
+
+  toggleTheme(bool isDark) {
+    setState(() {
+      _themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
 
   void appUpdateValue(bool value) {
     setState(() {
