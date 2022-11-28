@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:io';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit_bloc_poc/components/background_image.dart';
@@ -24,6 +28,9 @@ class _LandingPageState extends State<LandingPage> {
   final TextEditingController textPasscodeController = TextEditingController();
   List<String> dropDownItems = ['Pick your address'];
   String addressSelected = 'Pick your address';
+  bool isDeviceConnected = false;
+  bool isAlertSet = false;
+  late StreamSubscription? connectivitySubscription;
 
   void showInSnackBar(String value) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -38,9 +45,73 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
+  listenForConnectivity() {
+    connectivitySubscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult nowresult) async {
+      if (nowresult == ConnectivityResult.none) {
+        if (!isDeviceConnected && isAlertSet == false) {
+          showDialogBox();
+          setState(() => isAlertSet = true);
+        }
+      } else {
+        if (isAlertSet) {
+          Navigator.of(context).pop();
+          setState(() => isAlertSet = false);
+        }
+      }
+    });
+  }
+
+  showDialogBox() => showCupertinoDialog<String>(
+        context: context,
+        builder: (BuildContext context) => CupertinoAlertDialog(
+          title: const Text('No Connection'),
+          content: const Text('Please check your internet connectivity'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () async {
+                Navigator.pop(context, 'Cancel');
+                setState(() => isAlertSet = false);
+                isDeviceConnected = await checkConnection();
+                if (!isDeviceConnected && isAlertSet == false) {
+                  showDialogBox();
+                  setState(() => isAlertSet = true);
+                }
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+
+  Future<bool> checkConnection() async {
+    bool hasConnection = isDeviceConnected;
+
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        hasConnection = true;
+      } else {
+        hasConnection = false;
+      }
+    } on SocketException catch (_) {
+      hasConnection = false;
+    }
+
+    return hasConnection;
+  }
+
   @override
   void initState() {
     super.initState();
+    listenForConnectivity();
+  }
+
+  @override
+  void dispose() {
+    connectivitySubscription!.cancel();
+    super.dispose();
   }
 
   @override
