@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_cubit_bloc_poc/appStateContainer/app_state_container.dart';
 import 'package:flutter_cubit_bloc_poc/main/app.dart';
+import 'package:flutter_cubit_bloc_poc/native/native_platforms.dart';
 import 'package:flutter_cubit_bloc_poc/style/spacing.dart';
 
 import '../../language/language.dart';
@@ -18,10 +20,27 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool _switchValue = false;
+  static const methodChannel = MethodChannel('BB_Aquisition');
+  late String methodChannelValue;
 
   @override
   void initState() {
     super.initState();
+    methodChannelValue = 'Not initiated';
+  }
+
+  void initMethodChannel() async {
+    try {
+      String? returnedValue =
+          await NativePlatform.getValue(NativeMethod.GetUserName);
+      if (returnedValue != null) {
+        setState(() {
+          methodChannelValue = returnedValue;
+        });
+      }
+    } catch (e) {
+      print("Method Channel Exception: $e");
+    }
   }
 
   @override
@@ -35,6 +54,13 @@ class _SettingsPageState extends State<SettingsPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(methodChannelValue),
+            AppSpacing.sizeBoxHt5,
+            ElevatedButton(
+              onPressed: initMethodChannel,
+              child: const Text("Initiate Method channel"),
+            ),
+            AppSpacing.sizeBoxHt10,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
