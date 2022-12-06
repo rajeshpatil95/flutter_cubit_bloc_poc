@@ -26,7 +26,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
     super.initState();
-    methodChannelValue = 'Not initiated';
+    methodChannelValue = 'Click MethodChannel';
   }
 
   void initMethodChannel() async {
@@ -54,11 +54,14 @@ class _SettingsPageState extends State<SettingsPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(methodChannelValue),
-            AppSpacing.sizeBoxHt5,
-            ElevatedButton(
+            TextButton(
               onPressed: initMethodChannel,
-              child: const Text("Initiate Method channel"),
+              child: Text(methodChannelValue,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: AppFontSize.size16,
+                      color: AppColors.grey)),
             ),
             AppSpacing.sizeBoxHt10,
             Row(

@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/services.dart';
 
-/// API between Native-Flutter.
+/// API between Native-Flutter.[MethodChannel], [EventChannel], [BasicMessageChannel]
 /// To support a new method, declare it in [NativeMethod] and provide the method name in either [_getAndroidMethodName] or [_getIOSMethodName]
 /// To invoke a native method, call [invokeMethodWithArgs].
 /// To get a value from the native platform, call the appropriate getValue method.
