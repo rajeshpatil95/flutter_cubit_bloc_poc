@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_cubit_bloc_poc/appStateContainer/app_state_container.dart';
+import 'package:flutter_cubit_bloc_poc/app_state_container/app_state_container.dart';
 import 'package:flutter_cubit_bloc_poc/main/app.dart';
 import 'package:flutter_cubit_bloc_poc/native/native_platforms.dart';
 import 'package:flutter_cubit_bloc_poc/style/spacing.dart';

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cubit_bloc_poc/navigation/router.dart';
 
-import '../appStateContainer/app_state_container.dart';
+import '../app_state_container/app_state_container.dart';
 import '../di/di_initializer.dart';
 import 'app.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cubit_bloc_poc/appStateContainer/app_state_container.dart';
+import 'package:flutter_cubit_bloc_poc/app_state_container/app_state_container.dart';
 
-import '../multiTheme/theme_constants.dart';
+import '../multi_theme/theme_constants.dart';
 import '../language/language_constants.dart';
 import '../navigation/router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
