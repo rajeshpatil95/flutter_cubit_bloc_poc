@@ -16,7 +16,7 @@ abstract class Preferences {
 
   Future<String> getStringForKey(preferencesKeys key) async {
     SharedPreferences preferences = await _getPreferences();
-    return preferences.getString(key.toString())!;
+    return preferences.getString(key.toString()) ?? '';
   }
 
   Future<bool> setBoolForKey(preferencesKeys key, bool value) async {
